@@ -1,4 +1,4 @@
-# [GRUPI NIMI] — [Viimase nädala maavärinate ülevaade]
+# [GRUPI NIMI] — [VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE]
 
 > **Juhend:** Asenda kõik nurksulgudes vormid oma sisuga enne esitamist. Kustuta see juhendrida.
 
