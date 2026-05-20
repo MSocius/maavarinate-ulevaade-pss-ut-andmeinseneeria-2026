@@ -1,4 +1,4 @@
-# [GRUPI NIMI] — [PROJEKTI PEALKIRI]
+# [GRUPI NIMI] — [Viimase nädala maavärinate ülevaade]
 
 > **Juhend:** Asenda kõik nurksulgudes vormid oma sisuga enne esitamist. Kustuta see juhendrida.
 
