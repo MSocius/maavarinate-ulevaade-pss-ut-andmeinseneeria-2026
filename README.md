@@ -49,8 +49,8 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 git clone <repo-url>
 cd <projekti-kaust>
 
-git clone <https://github.com/MSocius/maavarinate-ulevaade-pss-ut-andmeinseneeria-2026/tree/main)>
-cd <projekti-kaust>
+git clone https://github.com/MSocius/maavarinate-ulevaade-pss-ut-andmeinseneeria-2026
+cd maavarinate-ulevaade-pss-ut-andmeinseneeria-2026
 
 
 # 2. Kopeeri keskkonnamuutujad
