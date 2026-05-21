@@ -12,6 +12,7 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/duckdb-cli:1": {}
   }
 }
