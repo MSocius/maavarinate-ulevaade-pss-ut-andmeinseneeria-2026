@@ -30,7 +30,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | [USGS Earthquake] | [API / fail / andmebaas] | Jah, [iga minut] | Põhiandmevoog |
-| [Teise allika nimi] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
+| [Earthquake Track] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
 
 ## Stack
 
