@@ -8,9 +8,9 @@
 
 **Mõõdikud:**
 
-1. [Esimene KPI või mõõdik — näiteks: päevane müük poe kohta]
-2. [Teine KPI või mõõdik]
-3. [Kolmas KPI või mõõdik — vabatahtlik]
+1. [Esimene KPI või mõõdik — näiteks: maavärinate arv viimasel nädalal]
+2. [Teine KPI või mõõdik - maavärinate tugevus viimasel nädalal]
+3. [Kolmas KPI või mõõdik — maavärinate asukoht viimasel nädalal]
 
 ## Arhitektuur
 
