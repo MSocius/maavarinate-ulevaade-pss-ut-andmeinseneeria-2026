@@ -1,10 +1,11 @@
-# [GRUPI NIMI] — [VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE]
+# [GRUPI NIMI] — VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
 
 > **Juhend:** Asenda kõik nurksulgudes vormid oma sisuga enne esitamist. Kustuta see juhendrida.
 
 ## Äriküsimus
 
 [Kirjelda ühe-kahe lausega, millise andmetega seotud probleemi te lahendate ja kes sellest kasu saab.]
+Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab teadlasi, kriisijuhtimist ja avalikkust ajakohase ohutaseme hindamisel ning varajase hoiatamise võimaluste parandamisel.
 
 **Mõõdikud:**
 
@@ -36,8 +37,8 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 | Komponent | Tööriist |
 |-----------|---------|
-| Sissevõtt | [Python / Airflow / muu] |
-| Transformatsioon | [SQL / dbt / muu] |
+| Sissevõtt | [Python / Airflow / muu] | Python "ingest_usgs,py" abil
+| Transformatsioon | [SQL / dbt / muu] | 
 | Andmehoidla | PostgreSQL |
 | Näidikulaud | [Superset / Streamlit / muu] |
 | Orkestreerimine | [Airflow / cron / muu] |
@@ -126,7 +127,6 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
 | Nimi | Roll |
 |------|------|
-| [Nimi 1] | [Roll] |
-| [Nimi 2] | [Roll] |
-| [Nimi 3] | [Roll] |
-| [Nimi 4] | [Roll — vabatahtlik] |
+| Ingrid Puusta-Rickard | [Roll] |
+| Katre Seema | [Roll] |
+| Margus Soots] | natuke igast |
