@@ -83,7 +83,7 @@ Vajalikud muutujad:
 
 ## Andmevoog lühidalt
 
-1. **Sissevõtt** —  Py script ingest_usgs.py kraabib USGS API-st toorandmed. python saab api lingi ja paroolid env failist.
+1. **Sissevõtt** —  Py script ingest_usgs.py kraabib USGS API-st toorandmed. API lingi ja paroolid on env failis.
 2. **Laadimine** —  Esialgu laetakse andmed DuckDB andmebaasi. Sooviks selle asendada PostgreSQL. eesmärk oli konrollida kas andmed on kättesaadavad. 
 3. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid] 
 5. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust = 
