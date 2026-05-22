@@ -138,6 +138,6 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
 | Nimi | Roll |
 |------|------|
-| Ingrid Puusta-Rickard | [Roll] |
+| Ingrid Puusta-Rickard | arhitektuur |
 | Katre Seema | [Roll] |
 | Margus Soots | natuke igat |
