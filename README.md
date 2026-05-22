@@ -40,7 +40,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 |-----------|---------|
 | Sissevõtt | [Python / Airflow / muu]  Python "ingest_usgs,py" abil | 
 | Transformatsioon | [SQL / dbt / muu] | 
-| Andmehoidla | PostgreSQL |
+| Andmehoidla | DuckDB (PostgreSQL) |
 | Näidikulaud | [Superset / Streamlit / muu] |
 | Orkestreerimine | [Airflow / cron / muu] |
 
@@ -77,14 +77,14 @@ Vajalikud muutujad:
 
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
-| `DB_LOGIN` | Andmebaasi PostgreSQL parool | (saladus) |
+| `DB_LOGIN` | Andmebaasi parool | (saladus) |
 | `USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query) |
-| `DB_PATH` | andmetebaas | raw_usgs_earthquakes |
+| `DB_PATH` | andmebaas | raw_usgs_earthquakes |
 
 ## Andmevoog lühidalt
 
 1. **Sissevõtt** — [Kirjelda, kuidas andmed allikast kätte saadakse] = Py script ingest_usgs.py kraabib USGS API-st toorandmed
-2. **Laadimine** — Andmed laaditakse `staging` kihti = Esialgu laetakse andmed earthquakes.duckdb andmebaasi. Prooviks asendada hiljem PostgreSQL. eesmärk oli konrollida kas andmed on kättesaadavad.
+2. **Laadimine** — Andmed laaditakse `staging` kihti = Esialgu laetakse andmed DuckDB andmebaasi. Sooviks selle asendada PostgreSQL. eesmärk oli konrollida kas andmed on kättesaadavad.
 3. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid] 
 5. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust = 
 6. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab] = Võiks näidata maavärinate asukohti ja sagedusi.
