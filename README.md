@@ -82,11 +82,11 @@ Vajalikud muutujad:
 
 ## Andmevoog lühidalt
 
-1. **Sissevõtt** — [Kirjelda, kuidas andmed allikast kätte saadakse]
-2. **Laadimine** — Andmed laaditakse `staging` kihti
-3. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid]
-4. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust
-5. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab]
+1. **Sissevõtt** — [Kirjelda, kuidas andmed allikast kätte saadakse] = Py script ingest_usgs.py kraabib USGS API-st toorandmed
+2. **Laadimine** — Andmed laaditakse `staging` kihti = Esialgu laetakse andmed earthquakes.duckdb andmebaasi. Prooviks asendada hiljem PostgreSQL.
+3. 4. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid] 
+5. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust
+6. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab]
 
 ## Andmekvaliteedi testid
 
@@ -117,9 +117,14 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
 **Kokkuvõte:**
 - [Loetle, mis on lõpule viidud, mis töötab hästi]
+- GitHub-i Codespaces ja pc CMD`s töötab paralleeleselt. 
+- Andmete laadimine andmebaasi töötab.
+- 
 
 **Puudused:**
 - [Loetle ausalt, mis jäi tegemata - see ei mõjuta hinnet negatiivselt, vaid aitab hinnata]
+- Seadistustega on veel vaja töötada. GitHubi Codespaces ei ole piisavat töökindlust. 
+- 
 
 **Mis edasi:**
 - [Mida tahaksid edasi teha, kui aega oleks rohkem]
@@ -130,4 +135,4 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 |------|------|
 | Ingrid Puusta-Rickard | [Roll] |
 | Katre Seema | [Roll] |
-| Margus Soots | natuke igast |
+| Margus Soots | natuke igat |
