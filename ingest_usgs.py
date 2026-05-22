@@ -1,21 +1,25 @@
 import requests
 import duckdb
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
+from dotenv import load_dotenv
+import os
 
 # -----------------------------------------
-# CONFIG
+# LOAD ENV VARIABLES
 # -----------------------------------------
-DB_PATH = "earthquakes.duckdb"
-TABLE_NAME = "raw_usgs_earthquakes"
+load_dotenv()
 
-# USGS API endpoint
-USGS_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query"
+DB_PATH = os.getenv("DB_PATH")
+TABLE_NAME = os.getenv("TABLE_NAME")
+USGS_URL = os.getenv("USGS_URL")
+DAYS = int(os.getenv("DAYS"))
 
-# Default: viimased 30 päeva
-END_DATE = datetime.utcnow().date()
-START_DATE = END_DATE - timedelta(days=30)
-
+# -----------------------------------------
+# DATE RANGE
+# -----------------------------------------
+END_DATE = datetime.now(UTC).date()
+START_DATE = END_DATE - timedelta(days=DAYS)
 
 # -----------------------------------------
 # FETCH DATA FROM USGS
@@ -25,7 +29,7 @@ def fetch_usgs_data(start_date, end_date):
         "format": "geojson",
         "starttime": start_date.isoformat(),
         "endtime": end_date.isoformat(),
-        "limit": 20000  # USGS max per request
+        "limit": 20000
     }
 
     print(f"📡 Fetching USGS data {start_date} → {end_date}")
@@ -36,12 +40,9 @@ def fetch_usgs_data(start_date, end_date):
         raise Exception(f"USGS API error: {response.status_code}")
 
     data = response.json()
-
-    # Extract features
     features = data.get("features", [])
     print(f"✔ Received {len(features)} earthquake records")
 
-    # Convert to DataFrame
     rows = []
     for f in features:
         props = f["properties"]
@@ -49,8 +50,8 @@ def fetch_usgs_data(start_date, end_date):
 
         rows.append({
             "id": f.get("id"),
-            "time": datetime.utcfromtimestamp(props["time"] / 1000),
-            "updated": datetime.utcfromtimestamp(props["updated"] / 1000),
+            "time": datetime.fromtimestamp(props["time"] / 1000, UTC),
+            "updated": datetime.fromtimestamp(props["updated"] / 1000, UTC),
             "mag": props.get("mag"),
             "place": props.get("place"),
             "type": props.get("type"),
@@ -64,7 +65,6 @@ def fetch_usgs_data(start_date, end_date):
 
     df = pd.DataFrame(rows)
     return df
-
 
 # -----------------------------------------
 # SAVE TO DUCKDB
@@ -81,7 +81,6 @@ def save_to_duckdb(df):
 
     con.close()
     print(f"💾 Saved {len(df)} rows into {DB_PATH}:{TABLE_NAME}")
-
 
 # -----------------------------------------
 # MAIN
