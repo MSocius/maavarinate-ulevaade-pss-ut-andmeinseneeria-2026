@@ -83,7 +83,7 @@ Vajalikud muutujad:
 ## Andmevoog lühidalt
 
 1. **Sissevõtt** — [Kirjelda, kuidas andmed allikast kätte saadakse] = Py script ingest_usgs.py kraabib USGS API-st toorandmed
-2. **Laadimine** — Andmed laaditakse `staging` kihti = Esialgu laetakse andmed earthquakes.duckdb andmebaasi. Prooviks asendada hiljem PostgreSQL.
+2. **Laadimine** — Andmed laaditakse `staging` kihti = Esialgu laetakse andmed earthquakes.duckdb andmebaasi. Prooviks asendada hiljem PostgreSQL. eesmärk oli konrollida kas andmed on kättesaadavad.
 3. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid] 
 5. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust = 
 6. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab] = Võiks näidata maavärinate asukohti ja sagedusi.
@@ -92,9 +92,11 @@ Vajalikud muutujad:
 
 Projekt kontrollib järgmist:
 
-1. [Test 1 - nt: kasutajate ID on unikaalne] = Kas maavärin registreering ja selle andmed on db-s unikaalne.
-2. [Test 2 - nt: tellimuse summa pole null] = 
-3. [Test 3 - nt: kuupäev jääb vahemikku 2020-2026]
+1.Kas maavärina registreering on db-s unikaalne.
+2. 
+[Test 1 - nt: kasutajate ID on unikaalne] =
+4. [Test 2 - nt: tellimuse summa pole null] = 
+5. [Test 3 - nt: kuupäev jääb vahemikku 2020-2026]
 [Lisa rohkem, kui sul on]
 
 Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
@@ -123,11 +125,13 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
 **Puudused:**
 - [Loetle ausalt, mis jäi tegemata - see ei mõjuta hinnet negatiivselt, vaid aitab hinnata]
-- Seadistustega on veel vaja töötada. GitHubi Codespaces ei ole piisavat töökindlust. 
+- Süsteemide loogika ja seadistustega on veel vaja katsetada. GitHubi Codespaces ei ole piisavat töökindlust. 
+- Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
 - 
 
 **Mis edasi:**
 - [Mida tahaksid edasi teha, kui aega oleks rohkem]
+- Andmeallikaid oleks juurde vaja integreerida.
 
 ## Meeskond
 
