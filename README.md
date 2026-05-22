@@ -77,8 +77,9 @@ Vajalikud muutujad:
 
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
-| `DB_PASSWORD` | PostgreSQL parool | (saladus) |
-| `[teised]` | ... | ... |
+| `DB_LOGIN=` | Andmebaasi PostgreSQL parool | (saladus) |
+| `[USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query) |
+| `[DB_PATH` | andmetebaas | raw_usgs_earthquakes |
 
 ## Andmevoog lühidalt
 
