@@ -38,8 +38,8 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 | Komponent | Tööriist |
 |-----------|---------|
-| Sissevõtt | [Python / Airflow / muu]  Python "ingest_usgs,py" abil | 
-| Transformatsioon | [SQL / dbt / muu] | 
+| Sissevõtt | Python [Python / Airflow / muu] | 
+| Transformatsioon | SQL [SQL / dbt / muu] | 
 | Andmehoidla | DuckDB (PostgreSQL) |
 | Näidikulaud | [Superset / Streamlit / muu] |
 | Orkestreerimine | [Airflow / cron / muu] |
