@@ -38,7 +38,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 | Komponent | Tööriist |
 |-----------|---------|
-| Sissevõtt | [Python / Airflow / muu] | Python "ingest_usgs,py" abil
+| Sissevõtt | [Python / Airflow / muu]  Python "ingest_usgs,py" abil | 
 | Transformatsioon | [SQL / dbt / muu] | 
 | Andmehoidla | PostgreSQL |
 | Näidikulaud | [Superset / Streamlit / muu] |
@@ -130,4 +130,4 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 |------|------|
 | Ingrid Puusta-Rickard | [Roll] |
 | Katre Seema | [Roll] |
-| Margus Soots] | natuke igast |
+| Margus Soots | natuke igast |
