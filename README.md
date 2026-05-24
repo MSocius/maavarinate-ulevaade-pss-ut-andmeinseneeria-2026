@@ -99,8 +99,8 @@ VÕIMALIK. ET TÄIENDAME
 1. **Sissevõtt** —  Py script ingest_usgs.py kraabib USGS API-st toorandmed. API lingi ja paroolid on env failis.
 2. **Laadimine** —  Andmed laetakse PostgreSQL andmebaasi (andmete kättesaadavust testisime ka DuckDB-ga). 
 3. **Transformatsioon** — Magnituudi kategooriad:mikro — magnituud alla <2, väike 2 .. 4, mõõdukas = 4 .. 6, tugev = 6 .. 7, väga tugev st üle 7. Päeva kokkuvõte: piirkond ja magnituud vähemalt 4. Arvutused tuleb teha ka ajatunnusega (fail sisaldab Unix TimeStampi maavärina esmase registreerimise ja ka maavärina andmete täiendamise ajahetke kohta. Unix TimeStamp tuleb kindlasti loetavale kujule UTC-ks konvertida). Konvertida tuleb ka piirkonna tunnuseid suuremateks regioonideks.
-6. **Testimine** — [Mitu] andmekvaliteedi testid kontrollivad andmete korrektsust = kas kõik kasutatavad tunnused on täidetud, kas ja kui pika aja jooksul andmeid tavaliselt muudetakse. 
-7. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab] = Näidiklaud näitab esmalt reageerimist vajavaid maavärinaid (ohukategooria järgi), maavärinate üldarvu piirkonniti, tugevuse ja ohutaseme järgi ning üldist nädalate keskmist maavärinate arvu. Kui võimalik, kuvame piirkondliku info kaardil ja kasutame ohutaseme värviskaalat.
+6. **Testimine** — [Mitu] andmekvaliteedi testid kontrollivad andmete korrektsust ja loogilisust
+7. **Näidikulaud** — Näidiklaud näitab esmalt reageerimist vajavaid maavärinaid (ohukategooria järgi), maavärinate üldarvu piirkonniti, tugevuse ja ohutaseme järgi ning üldist nädalate keskmist maavärinate arvu. Kui võimalik, kuvame piirkondliku info kaardil ja kasutame ohutaseme värviskaalat.
 VÕIMALIK. ET TÄIENDAME 
 
 ## Andmekvaliteedi testid
@@ -112,6 +112,7 @@ Projekt kontrollib järgmist:
 3. Magintuudid ei ole negatiivse väärtusega
 4. Konventeeritud UnixTimestamp annab tagasi UTC, mis on loogiline, st mahub viimase nädala/kuu sisse
 5. Konveneeritud UnixTimeStamp ei ole tulevikus ega varasemas minevikus kui meie päritud andmed  
+LISAME TESTE KUI OLEME ANDMETEGA ROHKEM TÖÖD TEINUD 
 
 Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
@@ -135,22 +136,26 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 - [Loetle, mis on lõpule viidud, mis töötab hästi]
 - GitHub-i Codespaces ja pc CMD`s töötab paralleeleselt. 
 - Andmete laadimine andmebaasi töötab.
+- Laadisin alla 2026.a maikuu kõikide registreeritud maavärinate andmed, et uurida andmekoosseise, andmete vormingut jms
+- Grupp suhtleb omavahel grupivestluses, iga grupiliige on "toru võtnud".
 - 
 
 **Puudused:**
 - [Loetle ausalt, mis jäi tegemata - see ei mõjuta hinnet negatiivselt, vaid aitab hinnata]
 - Süsteemide loogika ja seadistustega on veel vaja katsetada. GitHubi Codespaces ei ole piisavat töökindlust. 
 - Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
+- Arhitektuuripilti ei ole saanud koos läbi arutada
 - 
 
 **Mis edasi:**
 - [Mida tahaksid edasi teha, kui aega oleks rohkem]
 - Andmeallikaid oleks juurde vaja integreerida.
+- Ajaloolisi maavärinate andmeid veidi uurida, et teaks täpsemalt, millised andmekontrolle, transformatsioone ja juhtimislaudu saab teha. Praegu valisime mõõdikud äriprobleemi järgi, kuid peab vaatama, et me päris sama väljundit looma ei hakkaks, mis USGS lehel juba olemas on :)
 
 ## Meeskond
 
 | Nimi | Roll |
 |------|------|
 | Ingrid Puusta-Rickard | arhitektuur |
-| Katre Seema | [Roll] |
+| Katre Seema | Riskid, andmekontrollid ja -teisendused|
 | Margus Soots | andmeallika, transformatsioonide, näidikulaua omanik |
