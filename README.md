@@ -1,6 +1,5 @@
-# [GRUPI NIMI] — VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
+# [GRUPP VARIN] — VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
 
-> **Juhend:** Asenda kõik nurksulgudes vormid oma sisuga enne esitamist. Kustuta see juhendrida.
 
 ## Äriküsimus
 
