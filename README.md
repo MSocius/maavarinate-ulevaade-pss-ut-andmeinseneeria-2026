@@ -153,4 +153,4 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 |------|------|
 | Ingrid Puusta-Rickard | arhitektuur |
 | Katre Seema | [Roll] |
-| Margus Soots | natuke igat |
+| Margus Soots | andmeallika, transformatsioonide, näidikulaua omanik |
