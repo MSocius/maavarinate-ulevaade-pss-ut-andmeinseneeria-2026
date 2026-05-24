@@ -9,9 +9,9 @@ Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab te
 
 **Mõõdikud:**
 
-1. Maavärinate arv viimasel nädalal
-2. Maavärinate tugevus viimasel nädalal
-3. Maavärinate asukoht viimasel nädalal
+1. Reageerimist vajava ohutasemega maavärinate arv viimasel nädalal
+2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi ja piirkonna järgi
+3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
 VÕIMALIK. ET TÄIENDAME 
 
 ## Arhitektuur
