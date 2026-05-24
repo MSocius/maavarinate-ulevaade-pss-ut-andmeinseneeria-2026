@@ -85,7 +85,7 @@ Vajalikud muutujad:
 
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
-| `USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query) |
+| `USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query |
 | `POSTGRES_USER` | db kasutaja | meiegrupp |
 | `POSTGRES_PASSWORD` | parool | meieparool |
 | `POSTGRES_DB` | db nimi | MAAVARIN_PG|
@@ -107,8 +107,8 @@ VÕIMALIK. ET TÄIENDAME
 
 Projekt kontrollib järgmist:
 
-1.Kas maavärina registreering on db-s unikaalne (lisaks unikaalsele ID-d-le on igal kirjel ka unikaalne UnixTimeStamp tuhandik sekundi täpsusega - kontrollime mõlemat).
-2.Kas iga maavärina kohta on märgitud ära meile vajalikud andmeväljad (piirkond, magnituud, ohuhinnang, timestamp, updated timestamp, koordinaadid jms)
+1. Kas maavärina registreering on db-s unikaalne (lisaks unikaalsele ID-d-le on igal kirjel ka unikaalne UnixTimeStamp tuhandik sekundi täpsusega - kontrollime mõlemat).
+2. Kas iga maavärina kohta on märgitud ära meile vajalikud andmeväljad (piirkond, magnituud, ohuhinnang, timestamp, updated timestamp, koordinaadid jms)
 3. Magintuudid ei ole negatiivse väärtusega
 4. Konventeeritud UnixTimestamp annab tagasi UTC, mis on loogiline, st mahub viimase nädala/kuu sisse
 5. Konveneeritud UnixTimeStamp ei ole tulevikus ega varasemas minevikus kui meie päritud andmed  
@@ -136,7 +136,7 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 - [Loetle, mis on lõpule viidud, mis töötab hästi]
 - GitHub-i Codespaces ja pc CMD`s töötab paralleeleselt. 
 - Andmete laadimine andmebaasi töötab.
-- Laadisin alla 2026.a maikuu kõikide registreeritud maavärinate andmed, et uurida andmekoosseise, andmete vormingut jms
+- Laadisin alla 2026.a maikuu kõikide registreeritud maavärinate andmed, et uurida andmekoosseise, andmete vormingut, puuduvaid väärtusi jms
 - Grupp suhtleb omavahel grupivestluses, iga grupiliige on "toru võtnud".
 - 
 
@@ -150,7 +150,20 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 **Mis edasi:**
 - [Mida tahaksid edasi teha, kui aega oleks rohkem]
 - Andmeallikaid oleks juurde vaja integreerida.
-- Ajaloolisi maavärinate andmeid veidi uurida, et teaks täpsemalt, millised andmekontrolle, transformatsioone ja juhtimislaudu saab teha. Praegu valisime mõõdikud äriprobleemi järgi, kuid peab vaatama, et me päris sama väljundit looma ei hakkaks, mis USGS lehel juba olemas on :)
+- Ajaloolisi maavärinate andmeid tuleb veel veidi uurida, et teaks täpsemalt, millised andmekontrolle, transformatsioone ja juhtimislaudu teha, et äriküsimusele võimalikult hästi vastata.
+- Praegu valisime mõõdikud äriprobleemi järgi, kuid peab vaatama, et me päris sama väljundit looma ei hakkaks, mis USGS lehel juba olemas on :)
+- Peaks tegema ühise grupikohtumise, et projektiplaan läbi arutada, praegu toimetame asünkroonselt
+
+**Riskid ja nende maandamine:**
+
+| jrk | Risk | Maandamine |
+|---------|----------|-------|
+| 1. | Projekt ei jõua õigeaegselt valmis (grupiliikmetel ei ole piisavalt aega/motivatsiooni/jaksu panustada, püütakse teha hästi palju või hästi põhjalikult, ei küsita abi või jäädakse oskamatuse tõttu hätta) | Leppida kohe kokku miinimum versioon projektist, mis kindlasti ettenähtud ajaga ellu viiakse. Nice-to-have osad, mis võivad olla põnevad või arendavad, võetakse tegeleda siis kui miinimum on tehtud. Hoida grupiga ühendust, leppida kokku ühised aruteluajad, sh mentoriga. Hoida avatud suhtlusstiili ja tunnistada kui ei oska või mõni nädal ei jõua panustada. |
+| 2. | Kõiki vajalikke tarkvarasid ei õnnestu omavahel koos toimima saada nii, et andmetorud, andmekontrollid ja visuaalid toimiksid veavabalt. | Küsime nõu, arutame teiste kursusel osalejatega, googeldame ja kasutame nõu saamiseks tehisintellekti abi. Ei üritada maailma parimat lahendust luua, vaid keskendume kõige olulisemale. Kui vaja, valime tööks tarkvarad, mida loengus ja praktikumides õpetati. |
+| 3. | Reageerimist vajavaid maavärinaid toimub nii harva ja nii erinevais paigus, et meie loodud juhtimislaua abil ei ole tegelikult võimalik äriküsimustes viidatud probleeme lahendada ja kiiremini, teadlikumalt ohust teavitada, kriise juhtida jms | a) Kirjeldame lahti, milliseid tugisüsteeme oleks veel lisaks meie lahendusele luua, et kokkupandavast infost oleks abi, b) sõnastame äriküsimuse ümber, jätame alles ainult ühe kasusaaja või kitsendame maavärinate piirkondi, nii et oleks võimalik teavitussüsteem ja/või kriisijuhtimine sellele väljundile tuginevalt üles ehitada.
+| 4. | Me ei suuda saadud andmeid korrektselt tõlgendada ega vajalikke transformatsioone ja andmekontrolle teha, kuna meil ei ole selle valdkonna tausta. | Toetume USGS veebilehel juba välja antud statistikale ja liigitustele. Loeme seotud artikleid ja uudisnupukesi, et mitte põhiinfoga eksida. Loeme põhjalikult läbi USGS lehel oleva API kirjelduse ja ka metaandmete kirjeldused|
+| ... |  ... | ... |
+
 
 ## Meeskond
 
