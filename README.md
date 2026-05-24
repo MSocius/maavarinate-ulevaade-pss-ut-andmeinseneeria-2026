@@ -38,7 +38,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 | Komponent | Tööriist |
 |-----------|---------|
-| Sissevõtt | Python [Python / Airflow / muu] | 
+| Sissevõtt | Python | 
 | Transformatsioon | SQL [SQL / dbt / muu] | 
 | Andmehoidla | PostgreSQL (DuckDB kasutasime ühenduse testimiseks) |
 | Näidikulaud | [Superset / Streamlit / muu] |
