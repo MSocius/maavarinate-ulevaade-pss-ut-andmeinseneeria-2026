@@ -10,9 +10,9 @@ Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab te
 
 **Mõõdikud:**
 
-1. [Esimene KPI või mõõdik — näiteks: maavärinate arv viimasel nädalal]
-2. [Teine KPI või mõõdik - maavärinate tugevus viimasel nädalal]
-3. [Kolmas KPI või mõõdik — maavärinate asukoht viimasel nädalal]
+1. Maavärinate arv viimasel nädalal
+2. Maavärinate tugevus viimasel nädalal
+3. Maavärinate asukoht viimasel nädalal
 
 ## Arhitektuur
 
