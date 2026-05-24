@@ -40,7 +40,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 |-----------|---------|
 | Sissevõtt | Python [Python / Airflow / muu] | 
 | Transformatsioon | SQL [SQL / dbt / muu] | 
-| Andmehoidla | DuckDB (PostgreSQL) |
+| Andmehoidla | PostgreSQL (DuckDB kasutasime ühenduse testimiseks) |
 | Näidikulaud | [Superset / Streamlit / muu] |
 | Orkestreerimine | [Airflow / cron / muu] |
 
