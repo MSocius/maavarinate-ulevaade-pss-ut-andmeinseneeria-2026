@@ -1,4 +1,4 @@
--- Loo päevane kokkuvõtte tabel
+-- Kokkuvõtte tabel (päev)
 CREATE TABLE IF NOT EXISTS earthquakes_daily AS
 SELECT
     date(time) AS day,
