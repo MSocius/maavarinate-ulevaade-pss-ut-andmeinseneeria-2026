@@ -27,6 +27,7 @@ flowchart LR
 ```
 
 Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
+
 TEEMA ON VEEL LAHTINE
 
 ## Andmestik
