@@ -27,6 +27,7 @@ flowchart LR
 ```
 
 Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
+TEEMA ON VEEL LAHTINE
 
 ## Andmestik
 
@@ -34,6 +35,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 |---------|------|--------------|------|
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog |
 | [Earthquake Track] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
+VÕIMALIK. ET TÄIENDAME 
 
 ## Stack
 
@@ -92,7 +94,7 @@ Vajalikud muutujad:
 | `POSTGRES_DB` | db nimi | MAAVARIN_PG|
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
-
+VÕIMALIK. ET TÄIENDAME 
 
 
 ## Andmevoog lühidalt
@@ -102,6 +104,7 @@ Vajalikud muutujad:
 3. **Transformatsioon** — Magnituudi kategooriad:mikro — magnituud alla <2, väike 2 .. 4, mõõdukas = 4 .. 6, tugev = 6 .. 7, väga tugev st üle 7. Päeva kokkuvõte: piirkond ja magnituud vähemalt 4   [Kirjelda peamised arvutused ja mudelid] 
 6. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust = 
 7. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab] = Võiks näidata maavärinate asukohti ja sagedusi.
+VÕIMALIK. ET TÄIENDAME 
 
 ## Andmekvaliteedi testid
 
