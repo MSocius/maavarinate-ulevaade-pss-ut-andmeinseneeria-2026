@@ -90,8 +90,7 @@ Vajalikud muutujad:
 | `POSTGRES_PASSWORD` | Prosgres andmebaas | meieparool |
 | `POSTGRES_DB` | Prosgres andmebaas | MAAVARIN_PG|
 | `DB_PORT_HOST` | Prosgres andmebaas | 55432 |
-| `TEKST` |  tekst | tekst |
-| `DB` | tekst | tekst |
+| `...` |  ... | ... |
 
 
 
