@@ -13,6 +13,7 @@ Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab te
 1. Maavärinate arv viimasel nädalal
 2. Maavärinate tugevus viimasel nädalal
 3. Maavärinate asukoht viimasel nädalal
+VÕIMALIK. ET TÄIENDAME 
 
 ## Arhitektuur
 
