@@ -107,12 +107,11 @@ VÕIMALIK. ET TÄIENDAME
 
 Projekt kontrollib järgmist:
 
-1.Kas maavärina registreering on db-s unikaalne (unikaalset ID-d ei paista failis olevat, kuid UnixTimeStamp kannab seda rolli, iga kirje juures on ka update timestamp.
-2.
-[Test 1 - nt: kasutajate ID on unikaalne] =
-4. [Test 2 - nt: tellimuse summa pole null] = 
-5. [Test 3 - nt: kuupäev jääb vahemikku 2020-2026]
-[Lisa rohkem, kui sul on]
+1.Kas maavärina registreering on db-s unikaalne (lisaks unikaalsele ID-d-le on igal kirjel ka unikaalne UnixTimeStamp tuhandik sekundi täpsusega - kontrollime mõlemat).
+2.Kas iga maavärina kohta on märgitud ära meile vajalikud andmeväljad (piirkond, magnituud, ohuhinnang, timestamp, updated timestamp, koordinaadid jms)
+3. Magintuudid ei ole negatiivse väärtusega
+4. Konventeeritud UnixTimestamp annab tagasi UTC, mis on loogiline, st mahub viimase nädala/kuu sisse
+5. Konveneeritud UnixTimeStamp ei ole tulevikus ega varasemas minevikus kui meie päritud andmed  
 
 Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 
