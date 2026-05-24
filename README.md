@@ -137,7 +137,7 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 - [Loetle, mis on lõpule viidud, mis töötab hästi]
 - GitHub-i Codespaces ja pc CMD`s töötab paralleeleselt. 
 - Andmete laadimine andmebaasi töötab.
-- Laadisin alla 2026.a maikuu kõikide registreeritud maavärinate andmed, et uurida andmekoosseise, andmete vormingut, puuduvaid väärtusi jms
+- 2026.a maikuu kõikide registreeritud maavärinate andmed on alla laetud, et uurida andmekoosseise, andmete vormingut, puuduvaid väärtusi jms teisendamiseks ja andmekontrollideks vajalikku infot.
 - Grupp suhtleb omavahel grupivestluses, iga grupiliige on "toru võtnud".
 - 
 
@@ -145,7 +145,7 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 - [Loetle ausalt, mis jäi tegemata - see ei mõjuta hinnet negatiivselt, vaid aitab hinnata]
 - Süsteemide loogika ja seadistustega on veel vaja katsetada. GitHubi Codespaces ei ole piisavat töökindlust. 
 - Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
-- Arhitektuuripilti ei ole saanud koos läbi arutada
+- Projektiplaani, ideid, rolle ja lahendusi ei ole saanud grupiga koos läbi arutada
 - 
 
 **Mis edasi:**
@@ -154,6 +154,7 @@ Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
 - Ajaloolisi maavärinate andmeid tuleb veel veidi uurida, et teaks täpsemalt, millised andmekontrolle, transformatsioone ja juhtimislaudu teha, et äriküsimusele võimalikult hästi vastata.
 - Praegu valisime mõõdikud äriprobleemi järgi, kuid peab vaatama, et me päris sama väljundit looma ei hakkaks, mis USGS lehel juba olemas on :)
 - Peaks tegema ühise grupikohtumise, et projektiplaan läbi arutada, praegu toimetame asünkroonselt
+- Põnev oleks jah, andmeid mõne teise andmeallikaga siduda, et saaks tekkida uut teadmist, mitte lihtsalt statistiline ülevaade
 
 **Riskid ja nende maandamine:**
 
