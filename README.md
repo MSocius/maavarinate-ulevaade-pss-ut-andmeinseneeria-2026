@@ -31,7 +31,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
-| [USGS Earthquake] | [API / fail / andmebaas] | Jah, [iga minut] | Põhiandmevoog |
+| USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog |
 | [Earthquake Track] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
 
 ## Stack
@@ -39,7 +39,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 | Komponent | Tööriist |
 |-----------|---------|
 | Sissevõtt | Python | 
-| Transformatsioon | SQL [SQL / dbt / muu] | 
+| Transformatsioon | SQL, vajadusel dbt | 
 | Andmehoidla | PostgreSQL (DuckDB kasutasime ühenduse testimiseks) |
 | Näidikulaud | [Superset / Streamlit / muu] |
 | Orkestreerimine | [Airflow / cron / muu] |
