@@ -17,9 +17,9 @@ services:
     env_file:
       - .env
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${MAAVARIN_USER}  # prosgres kasutaja nimi
+      POSTGRES_PASSWORD: ${MAAVARIN_PW}  # prosgres parool
+      POSTGRES_DB: ${PGRES_MAAVARIN_DB} # prosgres db nimi
     ports:
       - "${DB_PORT_HOST:-55432}:5432"
     volumes:
