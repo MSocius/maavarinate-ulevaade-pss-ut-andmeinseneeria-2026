@@ -92,7 +92,7 @@ Vajalikud muutujad:
 ## Andmevoog lühidalt
 
 1. **Sissevõtt** —  Py script ingest_usgs.py kraabib USGS API-st toorandmed. API lingi ja paroolid on env failis.
-2. **Laadimine** —  Andmed laetakse PostgreSQL andmebaasi. Sooviks selle asendada PostgreSQL. (andmete kättesaadavuse testimiseks kasutasime ka DuckDB-d). 
+2. **Laadimine** —  Andmed laetakse PostgreSQL andmebaasi. Sooviks selle asendada PostgreSQL (andmete kättesaadavuse testimiseks kasutasime alguses ka DuckDB-d). 
 3. **Transformatsioon** — [Kirjelda peamised arvutused ja mudelid] 
 5. **Testimine** — [Mitu] andmekvaliteedi testi kontrollivad korrektsust = 
 6. **Näidikulaud** — [Kirjelda lühidalt, mida näidikulaud näitab] = Võiks näidata maavärinate asukohti ja sagedusi.
