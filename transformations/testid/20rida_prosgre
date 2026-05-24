@@ -1,1 +1,13 @@
+-- Loo päevane kokkuvõtte tabel
+CREATE TABLE IF NOT EXISTS earthquakes_daily AS
+SELECT
+    date(time) AS day,
+    COUNT(*) AS total_quakes,
+    MAX(magnitude) AS max_mag,
+    AVG(magnitude) AS avg_mag
+FROM earthquakes
+GROUP BY 1
+ORDER BY 1;
 
+-- Kuva esimesed 20 rida
+SELECT * FROM earthquakes_daily LIMIT 20;
