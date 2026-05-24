@@ -85,10 +85,9 @@ Vajalikud muutujad:
 
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
-| `DB_LOGIN` | Andmebaasi parool | meiegrupp |
 | `USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query) |
-| `POSTGRES_USER` | Prosgres andmebaas | meieparool |
-| `POSTGRES_PASSWORD` | Prosgres andmebaas | raw_usgs_earthquakes |
+| `POSTGRES_USER` | Prosgres andmebaas | meiegrupp |
+| `POSTGRES_PASSWORD` | Prosgres andmebaas | meieparool |
 | `POSTGRES_DB` | Prosgres andmebaas | MAAVARIN_PG|
 | `DB_PORT_HOST` | Prosgres andmebaas | 55432 |
 | `TEKST` |  tekst | tekst |
