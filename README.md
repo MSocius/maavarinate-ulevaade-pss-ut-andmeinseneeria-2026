@@ -9,7 +9,8 @@ Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab te
 1. Reageerimist vajava ohutasemega maavärinate arv viimasel nädalal
 2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi ja piirkonna järgi
 3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
-VÕIMALIK. ET TÄIENDAME 
+
+   VÕIMALIK. ET TÄIENDAME 
 
 ## Arhitektuur
 
