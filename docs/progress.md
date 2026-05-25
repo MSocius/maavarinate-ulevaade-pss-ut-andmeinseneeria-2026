@@ -4,10 +4,10 @@
 
 ## Mis on valmis
 
-- [ok] Docker Compose käivitab kõik teenused
-- [ok] Andmeid saadakse allikast kätte
-- [ok] Andmed laetakse `staging` kihti
-- [ok] Vähemalt üks transformatsioon toimib
+- [x] Docker Compose käivitab kõik teenused
+- [x] Andmeid saadakse allikast kätte
+- [x] Andmed laetakse `staging` kihti
+- [x] Vähemalt üks transformatsioon toimib
 - [ ] Vähemalt üks näidikulaud on nähtaval
 - [ ] Vähemalt üks andmekvaliteedi test läbib
 
