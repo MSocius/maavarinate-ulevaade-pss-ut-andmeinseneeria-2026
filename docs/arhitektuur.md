@@ -21,6 +21,7 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 | [Nimi] | [seed / dim-tabel] | Ei, staatiline | [Milleks kasutatakse?] |
 
 ## Andmevoog
+VEEL TÄPSUSTUB!
 
 ```mermaid
 flowchart LR
@@ -32,8 +33,6 @@ flowchart LR
     mart --> quality[Andmekvaliteedi testid]
     scheduler[Scheduler] --> ingest
 ```
-
-> Täpsusta diagrammi vastavalt oma projektile — lisa rohkem andmeallikaid, mudeleid või teenuseid.
 
 ## Andmebaasi kihid
 
