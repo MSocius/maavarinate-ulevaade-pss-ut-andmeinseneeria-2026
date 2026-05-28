@@ -20,7 +20,15 @@ Lühidalt, mis on valmis:
 
 ## Järgmised sammud
 
-- [Esimene tegevus, mis ees ootab]
+- Milline on USGS andmete kogu laius? kõik col pealkirjad? Ilmselt peaks meile päringu mõõdet kavatama.
+- > py daytime teek "unix to UTC"?
+- https://open-meteo.com/en/docs uurida uue andmeallika lisamist;
+- > kas õnnestub meteo päringut teha vastavalt maavärina koordinaatidele?
+- Kontroll
+- cron job käivitab xx.py:
+- > USGS päring - olemas
+  >  
+- Esimene tegevus, mis ees ootab]
 - [Teine tegevus]
 - [Kolmas tegevus]
 
