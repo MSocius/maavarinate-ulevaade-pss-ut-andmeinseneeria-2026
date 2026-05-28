@@ -8,8 +8,8 @@
 - [x] Andmeid saadakse allikast kätte
 - [x] Andmed laetakse `staging` kihti
 - [x] Vähemalt üks transformatsioon toimib
-- [ ] Vähemalt üks näidikulaud on nähtaval
-- [ ] Vähemalt üks andmekvaliteedi test läbib
+- [x] Vähemalt üks näidikulaud on nähtaval
+- [x] Vähemalt üks andmekvaliteedi test läbib
 
 [Täpsusta lühidalt, mis täpselt valmis on]
 
