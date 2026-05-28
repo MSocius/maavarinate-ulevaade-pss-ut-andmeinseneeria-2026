@@ -12,7 +12,7 @@
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
 Lühidalt, mis on valmis: 
-pg_ingest_usgs.py = loeb andmed allikast ja leab Prosgre andmebaasi;
+pg_ingest_usgs.py = loeb andmed allikast ja leab Prosgre andmebaasi (staging kiht);
 earthquakes_alert_week.sql = transformatsioon;
 day_alert.py = kuvab graafiku;
 kontroll = ühe reaga mitu maavärinat kvalifitseerus;
