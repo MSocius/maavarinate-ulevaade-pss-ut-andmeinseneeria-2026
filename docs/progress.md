@@ -33,6 +33,15 @@ Lühidalt, mis on valmis:
 
 Käsk, millega saab kontrollida, et töövoog töötab:
 
+
+```bash
+docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
+
+
+```bash
+docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
+
+
 ```bash
 01_käsk,  mis näitab, et andmed liiguvad allikast näidikulauani
 python day_alert.py
