@@ -36,7 +36,7 @@ Käsk, millega saab kontrollida, et töövoog töötab:
 ```bash
 # [Lisa siia käsk, mis näitab, et andmed liiguvad allikast näidikulauani]
 
-#  näide 1
+#  kontroll_01
 docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
 
 Oodatav tulemus: PostgreSQL tagastab ühe rea, mis näitab viimase 7 päeva ≥5.0 magnituudiga maavärinate arvu
