@@ -13,6 +13,8 @@
 
 Lühidalt, mis täpselt valmis on 
 day_alert.py = kuvab graafiku;
+kontrooll = ühe reaga mitu maavärinat kvalifitseerus;
+
 
 
 ## Järgmised sammud
