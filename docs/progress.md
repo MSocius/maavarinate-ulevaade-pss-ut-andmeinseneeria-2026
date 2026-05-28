@@ -27,7 +27,9 @@ Lühidalt, mis on valmis:
 - Kontroll
 - cron job käivitab xx.py:
 - > USGS päring - olemas
-  >  
+  > kui leeiab maavärina siis milline oli ilm? - puudub
+  > SQL - trasformatsioon sma baasi sees - 
+  > testid 
 - Esimene tegevus, mis ees ootab]
 - [Teine tegevus]
 - [Kolmas tegevus]
