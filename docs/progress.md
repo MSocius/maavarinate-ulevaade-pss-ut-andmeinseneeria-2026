@@ -12,10 +12,10 @@
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
 Lühidalt, mis on valmis:  
-pg_ingest_usgs.py = USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel;  
-earthquakes_alert_week.sql = transformatsioon;
-day_alert.py = kuvab graafiku;
-kontroll = ühe reaga mitu maavärinat kvalifitseerus;
+* USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel (pg_ingest_usgs.py);  
+* transformatsioon (earthquakes_alert_week.sql);  
+* day_alert.py = kuvab graafiku;  
+* kontroll st ühe reaga mitu maavärinat kvalifitseerus ;
 
 
 ## Järgmised sammud
