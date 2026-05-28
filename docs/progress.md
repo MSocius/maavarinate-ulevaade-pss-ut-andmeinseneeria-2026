@@ -11,7 +11,9 @@
 - [x] Vähemalt üks näidikulaud on nähtaval
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
-[Täpsusta lühidalt, mis täpselt valmis on]
+Lühidalt, mis täpselt valmis on 
+day_alert.py = kuvab graafiku;
+
 
 ## Järgmised sammud
 
