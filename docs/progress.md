@@ -12,6 +12,8 @@
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
 Lühidalt, mis on valmis: 
+pg_ingest_usgs.py = lisab raw andmed Prosgre andmebaasi;
+
 day_alert.py = kuvab graafiku;
 kontroll = ühe reaga mitu maavärinat kvalifitseerus;
 
