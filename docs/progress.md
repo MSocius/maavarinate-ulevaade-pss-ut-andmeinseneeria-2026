@@ -11,7 +11,7 @@
 - [x] Vähemalt üks näidikulaud on nähtaval
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
-Lühidalt, mis on valmis: 
+Lühidalt, mis on valmis:  
 pg_ingest_usgs.py = USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel;  
 earthquakes_alert_week.sql = transformatsioon;
 day_alert.py = kuvab graafiku;
