@@ -35,11 +35,11 @@ Käsk, millega saab kontrollida, et töövoog töötab:
 
 
 ```bash
-docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
+
 
 
 ```bash
-docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
+
 
 
 ```bash
