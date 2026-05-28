@@ -34,7 +34,7 @@ Lühidalt, mis on valmis:
 Käsk, millega saab kontrollida, et töövoog töötab:
 
 ```bash
-Käsk, mis näitab, et andmed liiguvad allikast näidikulauani
+01_käsk,  mis näitab, et andmed liiguvad allikast näidikulauani
 python day_alert.py
 
 kontroll_02
