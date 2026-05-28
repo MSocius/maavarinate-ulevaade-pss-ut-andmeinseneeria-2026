@@ -37,8 +37,7 @@ Käsk, millega saab kontrollida, et töövoog töötab:
 Käsk, mis näitab, et andmed liiguvad allikast näidikulauani
 python day_alert.py
 
-
-#  kontroll_02
+kontroll_02
 docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
 
 Oodatav tulemus: PostgreSQL tagastab ühe rea, mis näitab viimase 7 päeva ≥5.0 magnituudiga maavärinate arvu
