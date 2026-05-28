@@ -26,7 +26,8 @@ Lühidalt, mis on valmis:
 
 ## Mis takistab
 
-- [Probleem 1 — näiteks: API tagastab vigaseid väärtusi ühes linnas]
+- "Praegu pole blokeerivaid probleeme"
+-  [Probleem 1 — näiteks: API tagastab vigaseid väärtusi ühes linnas]
 - [Probleem 2 — või: "Praegu pole blokeerivaid probleeme"]
 
 ## Kontrollpunkt
