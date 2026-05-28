@@ -13,9 +13,9 @@
 
 Lühidalt, mis on valmis: 
 pg_ingest_usgs.py = loeb andmed allikast ja leab Prosgre andmebaasi;
+earthquakes_alert_week.sql = transformatsioon;
 day_alert.py = kuvab graafiku;
 kontroll = ühe reaga mitu maavärinat kvalifitseerus;
-
 
 
 ## Järgmised sammud
