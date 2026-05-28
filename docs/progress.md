@@ -13,7 +13,7 @@
 
 Lühidalt, mis on valmis:  
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel (pg_ingest_usgs.py);  
-* transformatsioon st sql päring (earthquakes_alert_week.sql);  
+* transformatsioon ehk sql päring (earthquakes_alert_week.sql);  
 * kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
 
