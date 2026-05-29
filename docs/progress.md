@@ -20,7 +20,7 @@ Lühidalt, mis on valmis:
 * kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
 * lisa andmeallikas https://open-meteo.com - ühendus loodud openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
-> päring lisab vaid maaväinad mille magmituud on min 5,0
+> päring lisab ilmaandmed kui maaväirina magmituud on min 5,0 vastavalt maavärina koordinaatidele
 * 
 
 
@@ -28,8 +28,6 @@ Lühidalt, mis on valmis:
 
 - Milline on USGS andmete kogu laius? kõik col pealkirjad? Ilmselt peaks meile päringu mõõdet kavatama.
 - > py daytime teek "unix to UTC"?
-- https://open-meteo.com/en/docs uurida uue andmeallika lisamist;
-- > kas õnnestub meteo päringut teha vastavalt maavärina koordinaatidele?
 - Kontroll
 - cron job käivitab xx.py:
 - > USGS päring - olemas
