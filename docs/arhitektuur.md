@@ -18,7 +18,7 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | [Nimi] | [API / CSV / DB] | Jah, [iga X tundi / päeva] | [Milleks kasutatakse?] |
-| [Nimi] | [seed / dim-tabel] | Ei, staatiline | [Milleks kasutatakse?] |
+| Opem Meteo | API | Ei, staatiline | [Milleks kasutatakse?] |
 
 ## Andmevoog
 VEEL TÄPSUSTUB!
