@@ -19,6 +19,7 @@ Lühidalt, mis on valmis:
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql);  
 * kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
+* lisa andmeallikas https://open-meteo.com - ühendus loodud
 
 
 ## Järgmised sammud
