@@ -26,8 +26,8 @@ Lühidalt, mis on valmis:
 
 ## Järgmised sammud
 
-- Milline on USGS andmete kogu laius? kõik col pealkirjad? Ilmselt peaks meile päringu mõõdet kavatama.
-- > py daytime teek "unix to UTC"?
+- Opem Meteo parooli vaja env faili viia
+- py daytime teek "unix to UTC" - kas seda on vaja??
 - Kontroll
 - cron job käivitab xx.py:
 - > USGS päring - olemas
