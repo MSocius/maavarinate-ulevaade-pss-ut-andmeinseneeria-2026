@@ -21,7 +21,7 @@ Lühidalt, mis on valmis:
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
 * lisa andmeallikas https://open-meteo.com - ühendus loodud openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
 > päring lisab ilmaandmed kui maaväirina magmituud on min 5,0 vastavalt maavärina koordinaatidele
-* 
+* aa_koik_jarjest.py käivitab kõik sammud järjest
 
 
 ## Järgmised sammud
