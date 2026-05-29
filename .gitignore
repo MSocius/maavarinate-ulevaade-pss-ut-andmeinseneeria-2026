@@ -1,4 +1,6 @@
 .env
+*.csv
+*.xlxs
 __pycache__/
 .pytest_cache/
 *.pyc
