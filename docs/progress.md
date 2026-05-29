@@ -19,7 +19,9 @@ Lühidalt, mis on valmis:
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql);  
 * kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
-* lisa andmeallikas https://open-meteo.com - ühendus loodud
+* lisa andmeallikas https://open-meteo.com - ühendus loodud openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
+> päring lisab vaid maaväinad mille magmituud on min 5,0
+* 
 
 
 ## Järgmised sammud
