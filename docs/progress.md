@@ -14,9 +14,8 @@
 Lühidalt, mis on valmis:  
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel (pg_ingest_usgs.py);  
 * >NB! tegin uue pg_ingest_usgs.py see lisab kõik veerud. vana "earthquakes" tuleks PostgreSQL ära kustutada. ja siis pg_ingest_usgs.py käivitada
-  >tegin kontrolli usgs_kont_columnid.py, et näha mis veerud tabelis on. väljund csv fail veegude nimedega
-  >tegin kontrolli tegin kontrolli usgs_kont_earhquakes_20rida.py, et näha mis andmed tabelis on. väljund 20 rida andmetega.
-  
+  >tegin kontrolli usgs_kont_columnid.py, et näha mis veerud tabelis on. väljund csv fail milles on veergude metadata
+  >tegin kontrolli tegin kontrolli usgs_kont_earhquakes_20rida.py, et näha mis andmed tabelis on. väljund 20 rida dataga  
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql);  
 * kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
