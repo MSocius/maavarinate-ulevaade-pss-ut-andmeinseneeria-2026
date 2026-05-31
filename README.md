@@ -2,7 +2,9 @@
 
 ## Äriküsimus
 
-Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab teadlasi, kriisijuhtimist ja avalikkust ajakohase ohutaseme hindamisel ning varajase hoiatamise võimaluste parandamisel.
+Meie eesmärk on koondada maavärina andmed ühtsesse ülevaatesse, mis toetab teadlasi, kriisijuhtimist ja avalikkust ajakohase ohutaseme hindamisel ning varajase hoiatamise võimaluste parandamisel.
+
+Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageerimist vajava ohutasemega maavärinaid ja kui tugevad/ulatuslikud need olid?
 
 **Mõõdikud:**
 
@@ -10,30 +12,19 @@ Meie eesmärk on koondada maavärinaandmed ühtsesse ülevaatesse, mis toetab te
 2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi ja piirkonna järgi
 3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
 
-   VÕIMALIK. ET TÄIENDAME 
+Täpsem arvutuskäik: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 ## Arhitektuur
 
-```mermaid
-flowchart LR
-    source[Andmeallikas] --> ingest[Sissevõtt]
-    ingest --> staging[(staging)]
-    staging --> transform[Transformatsioon]
-    transform --> mart[(mart)]
-    mart --> dashboard[Näidikulaud]
-```
-
 Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
-
-TEEMA ON VEEL LAHTINE
 
 ## Andmestik
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog |
-| [Earthquake Track] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
-VÕIMALIK. ET TÄIENDAME 
+| Open Meteo Forecast | API | Jah, ... | Lisaandmevoog |
+
 
 ## Stack
 
@@ -59,9 +50,7 @@ git pull
 
 # 2. Kopeeri keskkonnamuutujad
 cp .env.example .env
-# Muuda .env failis paroolid ja muud seaded vastavalt vajadusele
 .env.example .env - on hetkel ka maavärinate spetsiifilised andmed, siis tulevad need "git pull" abil oma pc-sse
-.env - ei tohi jõuda reposse.
 
 # 3. Käivita teenused
 docker compose up -d --build
@@ -100,14 +89,11 @@ VÕIMALIK. ET TÄIENDAME
 1. **Sissevõtt** —  Py script ingest_usgs.py kraabib USGS API-st toorandmed. API lingi ja paroolid on env failis.
 2. **Laadimine** —  Andmed laetakse PostgreSQL andmebaasi (andmete kättesaadavust testisime ka DuckDB-ga). 
 3. **Transformatsioon** — Magnituudi kategooriad:mikro — magnituud alla <2, väike 2 .. 4, mõõdukas = 4 .. 6, tugev = 6 .. 7, väga tugev st üle 7. Päeva kokkuvõte: piirkond ja magnituud vähemalt 4. Arvutused tuleb teha ka ajatunnusega (fail sisaldab Unix TimeStampi maavärina esmase registreerimise ja ka maavärina andmete täiendamise ajahetke kohta. Unix TimeStamp tuleb kindlasti loetavale kujule UTC-ks konvertida). Konvertida tuleb ka piirkonna tunnuseid suuremateks regioonideks.
-6. **Testimine** — [Mitu] andmekvaliteedi testid kontrollivad andmete korrektsust ja loogilisust
+6. **Kvaliteedikontroll** — Andmekvaliteedi testid kontrollivad andmete korrektsust ja loogilisust
 7. **Näidikulaud** — Näidiklaud näitab esmalt reageerimist vajavaid maavärinaid (ohukategooria järgi), maavärinate üldarvu piirkonniti, tugevuse ja ohutaseme järgi ning üldist nädalate keskmist maavärinate arvu. Kui võimalik, kuvame piirkondliku info kaardil ja kasutame ohutaseme värviskaalat.
-VÕIMALIK. ET TÄIENDAME 
 
 ## Andmekvaliteedi testid
-
-Projekt kontrollib järgmist:
-
+Kontrollime järgmisi näitajaid:
 1. Kas maavärina registreering on db-s unikaalne (lisaks unikaalsele ID-d-le on igal kirjel ka unikaalne UnixTimeStamp tuhandik sekundi täpsusega - kontrollime mõlemat).
 2. Kas iga maavärina kohta on märgitud ära meile vajalikud andmeväljad (piirkond, magnituud, ohuhinnang, timestamp, updated timestamp, koordinaadid jms)
 3. Magintuudid ei ole negatiivse väärtusega
@@ -115,7 +101,7 @@ Projekt kontrollib järgmist:
 5. Konveneeritud UnixTimeStamp ei ole tulevikus ega varasemas minevikus kui meie päritud andmed  
 LISAME TESTE KUI OLEME ANDMETEGA ROHKEM TÖÖD TEINUD 
 
-Testide tulemused: [kuhu salvestatakse / kuidas vaadata]
+Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 
 ## Projekti struktuur
 
