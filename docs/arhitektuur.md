@@ -31,16 +31,16 @@ flowchart LR
     staging --> transform[Transformatsioon]
     transform --> mart[(mart)]
     mart --> dashboard[Näidikulaud]
-    transform --> mart_quality[(mart_quality)]
     ```
 
+## transform --> mart_quality[(mart_quality)]
 ## Andmebaasi kihid
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
-|staging|...|...| Transformeerimata andmestikud|
-|mart|...|...| Transformeeritud andmestikud|
-|mart_quality|...|...| Kvaliteeditestide tulemused|
+|staging| lametabelid | jah, tabelisse tuleb kirjeid juurde | Transformeerimata andmestikud|
+|mart| dimensionaalne mudel, tähtskeem |dimensioonid ei muutu, faktitabelite sisu muutub| Transformeeritud andmestikud|
+|mart_quality| lametabelid |jah, iga käivitamisega kirjutatakse tulemus üle| Kvaliteeditestide tulemused|
 
 
 
@@ -66,4 +66,4 @@ flowchart LR
 
 ## Privaatsus ja turve
 
-Projekti andmete hulgas ei ole isikustatud adnmeid.
+Projekti andmete hulgas ei ole isikustatud adnmeid. Andmete juhtimislaual kasutatakse registreeritud maavärinate andmeid ( tugevus, asukoht, ohutase, koordinaadid, sügavus, kellaaeg) ning sama piirkonna ilmastiku andmeid (temperatuur, sademed, tuule tugevus ja suund). Andmebaasi kasutajanimi ja parool tulevad .env failist. Repo on piiratud kasutamisõigusega, ligipääs grupiliikmetele ja juhendajatele.
