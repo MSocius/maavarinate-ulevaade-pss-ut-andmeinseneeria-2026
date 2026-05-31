@@ -22,6 +22,21 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 
 ## Andmevoog
 
+
+```mermaid
+flowchart LR
+    api[Open-Meteo Forecast API] --> ingest[Python sissevõtt]
+    seed[Staatiline asukohadimensioon] --> ingest
+    scheduler[Cron scheduler] --> ingest
+    ingest --> staging[(staging.weather_hourly_raw)]
+    staging --> transform[SQL transformatsioon]
+    staging --> quality[Kvaliteedikontroll]
+    transform --> mart[(mart)]
+    quality --> qualmart[(quality.test_results)]
+    mart --> dashboard[Streamlit näidikulaud]
+    qualmart --> dashboard
+```
+
 ```mermaid
 flowchart LR
     source[USGS Earthquake] --> ingest[Sissevõtt1]
