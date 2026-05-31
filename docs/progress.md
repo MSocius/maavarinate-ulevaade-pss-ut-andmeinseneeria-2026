@@ -29,10 +29,10 @@
   > välja filtreerida kirjed ilma magnituudita (kontroll: kirjete arv, kus magnituudi info puudu);
   > välja filtreerida kirjed ilma koordinaatideta (kontroll: kirjete arv, kus koordinaate ei ole);
   > kas kõikide väljavalitud maavärinate koordinaatidele leiab open-meteo-st ilmastiku info (kontroll: kirjete arv, millele ei saanud openmeteost vastet);
-  > mida sisaldab andmeväli "sig", "magtype" ja "depth"? 
+  > lisada andmeväljadele juurde metaandmed näiteks tunnuse "sig" selgitus: "A number describing how significant the event is. Larger numbers indicate a more significant event. This value is determined on a number of factors, including: magnitude, maximum MMI, felt reports, and estimated impact. Typical values [0, 1000]" 
 * cron job käivitab xx.py:
   > USGS päring - olemas;
-  > kui leiab maavärina, siis milline oli ilm? puudu;
+  > kui leiab maavärina, siis milline oli ilm? - puudu;
   > SQL - trasformatsioon sama baasi sees;
   > testid.
 
