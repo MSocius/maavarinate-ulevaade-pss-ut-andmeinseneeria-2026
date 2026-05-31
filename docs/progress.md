@@ -10,31 +10,31 @@
 
 ### Lühidalt, mis on valmis:  
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis asub  projekti staging kihis. See on järgmiste transformatsioonide ja vaadete sisend tabel
-  > pg_ingest_usgs.py loob tabeli ja laeb sinna andmed sisse. Väljund PostgreSQL tabel eartquakes MAAVARIN_PG public skeemis 
-  > usgs_kont_columnid.py kontrollib, mis veerud tabelis on. Väljund csv fail veergude metadataga
+  > pg_ingest_usgs.py loob tabeli ja laeb sinna andmed sisse. Väljund PostgreSQL tabel eartquakes MAAVARIN_PG public skeemis; 
+  > usgs_kont_columnid.py kontrollib, mis veerud tabelis on. Väljund csv fail veergude metadataga;
   > usgs_kont_earhquakes_20rida.py toob välja 20 hiliseima kellajaga kirjet tabelis. Väljund csv.  
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql) kuvab graafiku (day_alert.py);
 * kontroll ühe reaga mitu maavärinat kvalifitseerus;
 * lisatud andmeallikas https://open-meteo.com
-  > openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL tabelisse openmeteo_maav_ilm_tund MAAVARIN_PG public skeemis
-  > päring lisab ilmaandmed kui maaväirina magmituud on minimaalselt 5,0 vastavalt maavärina koordinaatidele
+  > openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL tabelisse openmeteo_maav_ilm_tund MAAVARIN_PG public skeemis;
+  > päring lisab ilmaandmed kui maaväirina magmituud on minimaalselt 5,0 vastavalt maavärina koordinaatidele;
 * kood aa_koik_jarjest.py käivitab kõik andmevoo sammud järjest
 
 
 ## Järgmised sammud
-- Open Meteo parooli vaja env faili viia
-- py daytime teek "unix to UTC" - kas seda on vaja??
-- andmekontrollide ja transformatsioonide täiendamine
-  > välja filtreerida kirjed, mis ei ole maavärinad (type not equal to "earthquake")
-  > välja filtreerida kirjed ilma magnituudita (kontroll: kirjete arv, kus magnituudi info puudu)
-  > välja filtreerida kirjed ilma koordinaatideta (kontroll: kirjete arv, kus koordinaate ei ole)
-  > kas kõikide väljavalitud maavärinate koordinaatidele leiab open-meteo-st ilmastiku info (kontroll: kirjete arv, millele ei saanud openmeteost vastet)
+* Open Meteo parooli vaja env faili viia
+* py daytime teek "unix to UTC" - kas seda on vaja??
+* andmekontrollide ja transformatsioonide täiendamine
+  > välja filtreerida kirjed, mis ei ole maavärinad (type not equal to "earthquake");
+  > välja filtreerida kirjed ilma magnituudita (kontroll: kirjete arv, kus magnituudi info puudu);
+  > välja filtreerida kirjed ilma koordinaatideta (kontroll: kirjete arv, kus koordinaate ei ole);
+  > kas kõikide väljavalitud maavärinate koordinaatidele leiab open-meteo-st ilmastiku info (kontroll: kirjete arv, millele ei saanud openmeteost vastet);
   > mida sisaldab andmeväli "sig", "magtype" ja "depth"? 
-- cron job käivitab xx.py:
-  > USGS päring - olemas
-  > kui leiab maavärina, siis milline oli ilm? - puudub
-  > SQL - trasformatsioon sama baasi sees - 
-  > testid 
+* cron job käivitab xx.py:
+  > USGS päring - olemas;
+  > kui leiab maavärina, siis milline oli ilm? puudu;
+  > SQL - trasformatsioon sama baasi sees;
+  > testid.
 
 ## Mis takistab
 - praegu pole blokeerivaid probleeme (peale selle, et aeg on piiratud ja oskused ei ole nii head kui saaksid olla)  
