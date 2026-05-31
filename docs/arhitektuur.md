@@ -32,21 +32,8 @@ flowchart LR
     staging --> transform[SQL transformatsioon]
     staging --> quality[Kvaliteedikontroll]
     transform --> mart[(mart)]
-    quality --> qualmart[(quality.test_results)]
+    quality --> qualmart[(qual_mart)]
     mart --> dashboard[Näidikulaud]
-```
-
-```mermaid
-flowchart LR
-    source[USGS Earthquake] --> ingest[Sissevõtt1]
-    source[Open Meteo] --> ingest[Sissevõtt2]
-    scheduler[Scheduler] --> ingest
-    ingest --> staging[(staging)]
-    staging --> transform[Transformatsioon]
-    transform --> mart[(mart)]
-    mart --> dashboard[Näidikulaud]
-    staging --> transform[Kvaliteedikontroll]
-    transform --> controll[(qual_mart)]
 ```
 
 ## Andmebaasi kihid
