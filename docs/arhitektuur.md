@@ -24,15 +24,15 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 
 ```mermaid
 flowchart LR
-    source[USGS Earthquake] --> ingest[Sissevõtt]
-    source[Open Meteo] --> ingest
+    source[USGS Earthquake] --> ingest[Sissevõtt1]
+    source[Open Meteo] --> ingest[Sissevõtt2]
     scheduler[Scheduler] --> ingest
     ingest --> staging[(staging)]
     staging --> transform[Transformatsioon]
-    staging --> transform[Kvaliteedikontroll]
     transform --> mart[(mart)]
-    transform --> controll[(qual_mart)]
     mart --> dashboard[Näidikulaud]
+    staging --> transform[Kvaliteedikontroll]
+    transform --> controll[(qual_mart)]
 ```
 
 ## Andmebaasi kihid
@@ -51,6 +51,7 @@ flowchart LR
 |------|----------|--------|
 | Andmeallika omanik | Kirjutab sissevõtu loogika, hoiab API-t töös | Margus |
 | Transformatsioonide omanik | Kirjutab mart kihi mudelid ja mõõdikute arvutuse | [Nimi] |
+| Arhitektuuripilt | Loob arhitektuuriskeemi | Katre |
 | Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | Katre |
 | Näidikulaua omanik | Ehitab näidikulaua ja seob selle äriküsimusega | [Nimi] |
 
