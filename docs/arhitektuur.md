@@ -55,8 +55,8 @@ flowchart LR
 | Arhitektuuripilt | Loob ja täiendab arhitektuuriskeemi | Katre |
 | Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | Katre |
 | Näidikulaua omanik | Ehitab näidikulaua ja seob selle äriküsimusega | Margus ja Katre|
-| Riskide kirjeldus, projekti sõnaline täiendamine ja viimistlemine  | Katre |
-| Projekti esitlus | Margus ja Katre |
+| Projekti ärikirjelduste omanik | Riskide kirjeldus, projekti sõnaline täiendamine ja viimistlemine  | Katre |
+| Projekti esitlus | Projekti esitlusvideo loomine | Margus ja Katre |
 
 
 ## Riskid
