@@ -25,11 +25,13 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 ```mermaid
 flowchart LR
     source[USGS Earthquake] --> ingest[Sissevõtt]
-    source[Open Meteo] --> ingest[Sissevõtt]
+    source[Open Meteo] --> ingest
     scheduler[Scheduler] --> ingest
     ingest --> staging[(staging)]
     staging --> transform[Transformatsioon]
+    staging --> controll[Kvaliteedikontroll]
     transform --> mart[(mart)]
+    transform --> controll[(qual_mart)]
     mart --> dashboard[Näidikulaud]
 ```
 
