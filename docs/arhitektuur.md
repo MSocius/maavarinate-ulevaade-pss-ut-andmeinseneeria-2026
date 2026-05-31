@@ -41,7 +41,7 @@ flowchart LR
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 |staging| lametabelid | jah, tabelisse tuleb kirjeid juurde | Transformeerimata andmestikud|
-|mart| dimensionaalne mudel, tähtskeem |dimensioonid ei muutu, faktitabelite sisu muutub| Transformeeritud andmestikud|
+|mart| dimensionaalne mudel, tähtskeem |dimensioonid ei muutu, faktitabelite sisu muutub| Transformeeritud andmestikud, mille alusel luuakse andmete näidikulaud|
 |qual_mart| lametabelid |jah, iga käivitamisega kirjutatakse tulemus üle| Kvaliteeditestide tulemused|
 
 
