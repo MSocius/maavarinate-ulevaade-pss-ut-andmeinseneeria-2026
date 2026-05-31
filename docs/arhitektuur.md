@@ -31,7 +31,8 @@ flowchart LR
     staging --> transform[Transformatsioon]
     transform --> mart[(mart)]
     mart --> dashboard[Näidikulaud]
-    ```
+```
+
 ## Andmebaasi kihid
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
