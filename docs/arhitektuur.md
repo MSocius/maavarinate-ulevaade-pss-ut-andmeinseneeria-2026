@@ -51,12 +51,12 @@ flowchart LR
 | Roll | Vastutus | Täitja |
 |------|----------|--------|
 | Andmeallika omanik | Kirjutab sissevõtu loogika, hoiab API-t töös | Margus |
-| Transformatsioonide omanik | Kirjutab mart kihi mudelid ja mõõdikute arvutuse | Margus ja Katre|
+| Transformatsioonide omanik | Kirjutab mart kihi mudelid ja mõõdikute arvutuse | Margus, Katre|
 | Arhitektuuripilt | Loob ja täiendab arhitektuuriskeemi | Katre |
-| Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | Katre |
-| Näidikulaua omanik | Ehitab näidikulaua ja seob selle äriküsimusega | Margus ja Katre|
+| Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | Margus, Katre |
+| Näidikulaua omanik | Ehitab näidikulaua ja seob selle äriküsimusega | Margus, Katre|
 | Projekti ärikirjelduste omanik | Riskide kirjeldus, projekti sõnaline täiendamine ja viimistlemine  | Katre |
-| Projekti esitlus | Projekti esitlusvideo loomine | Margus ja Katre |
+| Projekti esitlus | Projekti esitlusvideo loomine | Margus, Katre |
 
 
 ## Riskid
