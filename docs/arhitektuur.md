@@ -17,7 +17,6 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
-| [Nimi] | [API / CSV / DB] | Jah, [iga X tundi / päeva] | [Milleks kasutatakse?] |
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog, registreeritud maavärinad |
 | Opem Meteo | API | Jah, iga Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
 
@@ -27,25 +26,25 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 flowchart LR
     source[Andmeallikas.1 USGS Earthquake] --> ingest[Sissevõtt]
     source[Andmeallikas.2 Open Meteo] --> ingest[Sissevõtt]
+    scheduler[Scheduler] --> ingest
     ingest --> staging[(staging)]
     staging --> transform[Transformatsioon]
     transform --> mart[(mart)]
-    mart --> quality[Andmekvaliteedi testid]
     mart --> dashboard[Näidikulaud]
-    scheduler[Scheduler] --> ingest
-```
+    transform --> mart_quality[(mart_quality)]
+    ```
 
 ## Andmebaasi kihid
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
-|staging|...|...| andmeallika andmestikud muutmata kujul|
-|mart|...|...| andmeallika andmestikud transformeeritud kujul|
+|staging|...|...| Transformeerimata andmestikud|
+|mart|...|...| Transformeeritud andmestikud|
+|mart_quality|...|...| Kvaliteeditestide tulemused|
 
 
 
 ## Tööjaotus
-
 
 | Roll | Vastutus | Täitja |
 |------|----------|--------|
