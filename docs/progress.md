@@ -20,8 +20,7 @@ Lühidalt, mis on valmis:
 
 
 ## Järgmised sammud
-
-- Opem Meteo parooli vaja env faili viia
+- Open Meteo parooli vaja env faili viia
 - py daytime teek "unix to UTC" - kas seda on vaja??
 - Kontroll
 - cron job käivitab xx.py:
