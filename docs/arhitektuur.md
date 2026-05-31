@@ -18,19 +18,20 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | [Nimi] | [API / CSV / DB] | Jah, [iga X tundi / päeva] | [Milleks kasutatakse?] |
-| Opem Meteo | API | Ei, staatiline | [Milleks kasutatakse?] |
+| USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog, registreeritud maavärinad |
+| Opem Meteo | API | Jah, iga Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
 
 ## Andmevoog
-VEEL TÄPSUSTUB!
 
 ```mermaid
 flowchart LR
-    source[Andmeallikas] --> ingest[Sissevõtt]
+    source[Andmeallikas.1 USGS Earthquake] --> ingest[Sissevõtt]
+    source[Andmeallikas.2 Open Meteo] --> ingest[Sissevõtt]
     ingest --> staging[(staging)]
     staging --> transform[Transformatsioon]
     transform --> mart[(mart)]
-    mart --> dashboard[Näidikulaud]
     mart --> quality[Andmekvaliteedi testid]
+    mart --> dashboard[Näidikulaud]
     scheduler[Scheduler] --> ingest
 ```
 
@@ -38,21 +39,19 @@ flowchart LR
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
-| USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog |
-| [Earthquake Track] | [seed / dim-tabel] | Ei, staatiline | Kõrvaltabel |
+|staging|...|...| andmeallika andmestikud muutmata kujul|
+|mart|...|...| andmeallika andmestikud transformeeritud kujul|
 
-TÄIENDAME VEEL! 
 
 
 ## Tööjaotus
 
-Kuna meil kolmas meeskonnaliige lahkus projektist, tuleb rollid ümber mängida. Kahekesi projektis olles tuleb rollidele loominguliselt läheneda ja vaadata, et projekti tulemid õigeks ajaks tehtud saaks. Püüame toetuda teineteise tugevustele ja need ei pruugi siinsete kirjelduste järgi tasakaalus pilti näidata.
 
 | Roll | Vastutus | Täitja |
 |------|----------|--------|
-| Andmeallika omanik | Kirjutab sissevõtu loogika, hoiab API-t töös |  |
+| Andmeallika omanik | Kirjutab sissevõtu loogika, hoiab API-t töös | Margus |
 | Transformatsioonide omanik | Kirjutab mart kihi mudelid ja mõõdikute arvutuse | [Nimi] |
-| Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | [Nimi] |
+| Kvaliteedi omanik | Kirjutab testid ja vaatab läbi ebaõnnestunud kontrollid | Katre |
 | Näidikulaua omanik | Ehitab näidikulaua ja seob selle äriküsimusega | [Nimi] |
 
 ## Riskid
