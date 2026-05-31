@@ -8,7 +8,7 @@
 - [x] Vähemalt üks näidikulaud on nähtaval
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
-Lühidalt, mis on valmis:  
+## Lühidalt, mis on valmis:  
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis asub  projekti staging kihis. See on järgmiste transformatsioonide ja vaadete sisend tabel (kood: pg_ingest_usgs.py);  
   >usgs_kont_columnid.py kontrollib, mis veerud tabelis on. Väljund csv fail veergude metadataga
   >usgs_kont_earhquakes_20rida.py, mis andmed tabelis on. Väljund csv 20 rida dataga  
