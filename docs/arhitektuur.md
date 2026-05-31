@@ -29,7 +29,7 @@ flowchart LR
     scheduler[Scheduler] --> ingest
     ingest --> staging[(staging)]
     staging --> transform[Transformatsioon]
-    staging --> controll[Kvaliteedikontroll]
+    staging --> transform[Kvaliteedikontroll]
     transform --> mart[(mart)]
     transform --> controll[(qual_mart)]
     mart --> dashboard[Näidikulaud]
@@ -41,7 +41,7 @@ flowchart LR
 |---------|------|--------------|------|
 |staging| lametabelid | jah, tabelisse tuleb kirjeid juurde | Transformeerimata andmestikud|
 |mart| dimensionaalne mudel, tähtskeem |dimensioonid ei muutu, faktitabelite sisu muutub| Transformeeritud andmestikud|
-|mart_quality| lametabelid |jah, iga käivitamisega kirjutatakse tulemus üle| Kvaliteeditestide tulemused|
+|qual_mart| lametabelid |jah, iga käivitamisega kirjutatakse tulemus üle| Kvaliteeditestide tulemused|
 
 
 
