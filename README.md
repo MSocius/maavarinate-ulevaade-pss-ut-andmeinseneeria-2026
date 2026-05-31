@@ -157,6 +157,5 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 
 | Nimi | Roll |
 |------|------|
-| Ingrid Puusta-Rickard | arhitektuur |
-| Katre Seema | Riskid, andmekontrollid ja -teisendused|
+| Katre Seema | Riskid, andmekontrollid ja -teisendused, arhitektuur|
 | Margus Soots | andmeallika, transformatsioonide, näidikulaua omanik |
