@@ -22,29 +22,33 @@ Lühidalt, mis on valmis:
 ## Järgmised sammud
 - Open Meteo parooli vaja env faili viia
 - py daytime teek "unix to UTC" - kas seda on vaja??
-- Kontroll
+- andmekontrollide ja transformatsioonide täiendamine
+  > välja filtreerida kirjed, mis ei ole maavärinad (type not equal to "earthquake")
+  > välja filtreerida kirjed ilma magnituudita (kontroll: kirjete arv, kus magnituudi info puudu)
+  > välja filtreerida kirjed ilma koordinaatideta (kontroll: kirjete arv, kus koordinaate ei ole)
+  > kas kõikide väljavalitud maavärinate koordinaatidele leiab open-meteo-st ilmastiku info (kontroll: kirjete arv, millele ei saanud openmeteost vastet)
+  > mida sisaldab andmeväli "sig", "magtype" ja "depth"? 
 - cron job käivitab xx.py:
 - > USGS päring - olemas
-  > kui leeiab maavärina siis milline oli ilm? - puudub
-  > SQL - trasformatsioon sma baasi sees - 
+  > kui leiab maavärina, siis milline oli ilm? - puudub
+  > SQL - trasformatsioon sama baasi sees - 
   > testid 
 
 ## Mis takistab
-- "Praegu pole blokeerivaid probleeme"
-- oskused ja piiratud aeg 
+- praegu pole blokeerivaid probleeme (peale selle, et aeg on piiratud ja oskused ei ole nii head kui saaksid olla)  
   
 ## Kontrollpunkt
 Käsk, millega saab kontrollida, et töövoog töötab:
 
 ```bash
-01_käsk,  mis näitab, et andmed liiguvad allikast näidikulauani
+# 01_käsk,  mis näitab, et andmed liiguvad allikast näidikulauani
 python day_alert.py
 
-kontroll_02
+# kontroll_02
 docker compose exec db psql -U meiegrupp -d MAAVARIN_PG -c "SELECT COUNT(*) FROM earthquakes_alert_week;"
 
-Oodatav tulemus: PostgreSQL tagastab ühe rea, mis näitab viimase 7 päeva ≥5.0 magnituudiga maavärinate arvu
- count
--------
-     6
+#Oodatav tulemus: PostgreSQL tagastab ühe rea, mis näitab viimase 7 päeva ≥5.0 magnituudiga maavärinate arvu
+# count
+# -------
+#     6
 
