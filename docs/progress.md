@@ -10,8 +10,8 @@
 
 Lühidalt, mis on valmis:  
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis asub  projekti staging kihis. See on järgmiste transformatsioonide ja vaadete sisend tabel (kood: pg_ingest_usgs.py);  
-  >tegin kontrolli usgs_kont_columnid.py, et näha mis veerud tabelis on. Väljund csv fail milles on veergude metadata
-  >tegin kontrolli usgs_kont_earhquakes_20rida.py, et näha mis andmed tabelis on. Väljund csv 20 rida dataga  
+  >usgs_kont_columnid.py kontrollib, mis veerud tabelis on. Väljund csv fail veergude metadataga
+  >usgs_kont_earhquakes_20rida.py, mis andmed tabelis on. Väljund csv 20 rida dataga  
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql) kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
 * lisatud andmeallikas https://open-meteo.com - kood openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
