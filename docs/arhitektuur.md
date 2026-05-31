@@ -11,7 +11,7 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 1. **Reageerimist vajava ohutasemega maavärinate arv viimasel nädalal** - filtreerime välja kõrge ohutasemega maavärina teated,  loendame ja kuvame välja viimase nädala üldarvu
 2. **Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi ja piirkonna järgi** - loendame kokku kõik registreeritud maavärinateated, rühmitame neid piirkonna ja tugevuse järgi. Kuvame välja viimase nädala üldarvud koos osakaaludega  %-des. (et oleks näha kui suur osa kõikidest registreeritud maavärinatest on mingi ohutasemega, mingis piirkonnas või mingis tugevusgrupis)
 3. **Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes** - loendame pikema perioodi andmete alusel kokku maavärinate ja reageerimist vajava ohutasemega maavärinate arvud, arvutame nädalate kohta välja koondnäitajad, arvutame nädalate keskmised, kuvame nädalate keskmised välja sagedusdiagrammina (et oleks näha, kas kõrgema tasemega või üldse maavärinad on sesoonsed näitajad ning millised kuud võiksid olla "ohtlikumad" ning et hinnata, kas käesolev nädal on nö "kesmine nädal", "seismiliselt väga aktiivne nädal" või "üsna rahulik nädal" - loob natuke rohkem konteksti kui lihtsalt nädala üldarv)  
-4. **Imainfo** - P
+4. **Reageerimist vajava ohutasemega maavärina asukoha ilmainfo** - välja filtreeritud ohutasemega maavärina toimumiskoha ilmainfo päritakse maavärina toimumise ajahetkel ja X tundi hiljem. Kuvame välja suurimad muutused ilmastikus selle ajaperioodi vältel (et oleks näha, kas maavärin tekitas X tunni jooksul suuremat tuult, märgatavat temperatuuri tõusu või langust vms).
 
 ## Andmeallikad
 
