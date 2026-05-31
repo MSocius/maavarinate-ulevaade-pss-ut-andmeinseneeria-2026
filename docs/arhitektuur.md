@@ -18,7 +18,7 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog, registreeritud maavärinad |
-| Opem Meteo Forecast| API | Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
+| Open Meteo Forecast| API | Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
 
 ## Andmevoog
 
