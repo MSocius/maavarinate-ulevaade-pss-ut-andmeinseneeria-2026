@@ -32,8 +32,6 @@ flowchart LR
     transform --> mart[(mart)]
     mart --> dashboard[Näidikulaud]
     ```
-
-## transform --> mart_quality[(mart_quality)]
 ## Andmebaasi kihid
 
 | Allikas | Tüüp | Ajas muutuv? | Roll |
