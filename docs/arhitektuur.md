@@ -18,23 +18,23 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog, registreeritud maavärinad |
-| Opem Meteo | API | Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
+| Opem Meteo Forecast| API | Jah, [iga X tundi / päeva]  | Lisaandmevoog, põhiandmevoo piirkonna ilmainfo |
 
 ## Andmevoog
 
 
 ```mermaid
 flowchart LR
-    api[Open-Meteo Forecast API] --> ingest[Python sissevõtt]
-    seed[Staatiline asukohadimensioon] --> ingest
+    api[USGS Earthquake] --> ingest[Python sissevõtt]
+    api[Open-Meteo Forecast] --> ingest
     scheduler[Cron scheduler] --> ingest
-    ingest --> staging[(staging.weather_hourly_raw)]
+    ingest --> staging[(staging.earthquakes)]
+    ingest --> staging[(staging.maav_ilm_tund)]
     staging --> transform[SQL transformatsioon]
     staging --> quality[Kvaliteedikontroll]
     transform --> mart[(mart)]
     quality --> qualmart[(quality.test_results)]
-    mart --> dashboard[Streamlit näidikulaud]
-    qualmart --> dashboard
+    mart --> dashboard[Näidikulaud]
 ```
 
 ```mermaid
