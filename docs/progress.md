@@ -1,7 +1,4 @@
 # Edenemisraport
-
-> **Juhend:** See fail on projektitöö teise nädala väljund. Uuenda lühidalt iga esitamise eel. Kustuta see juhendrida.
-
 ## Mis on valmis
 
 - [x] Docker Compose käivitab kõik teenused
@@ -12,15 +9,13 @@
 - [x] Vähemalt üks andmekvaliteedi test läbib
 
 Lühidalt, mis on valmis:  
-* USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis toimib projekti staging kihina ja see on järgmiste transformatsioonide ja vaadete sisend tabel (pg_ingest_usgs.py);  
-* >NB! tegin uue pg_ingest_usgs.py see lisab kõik veerud. vana "earthquakes" tuleks PostgreSQL ära kustutada. ja siis pg_ingest_usgs.py käivitada
-  >tegin kontrolli usgs_kont_columnid.py, et näha mis veerud tabelis on. väljund csv fail milles on veergude metadata
-  >tegin kontrolli tegin kontrolli usgs_kont_earhquakes_20rida.py, et näha mis andmed tabelis on. väljund 20 rida dataga  
-* transformatsioon ehk sql päring (earthquakes_alert_week.sql);  
-* kuvab graafiku (day_alert.py);
+* USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis asub  projekti staging kihis. See on järgmiste transformatsioonide ja vaadete sisend tabel (kood: pg_ingest_usgs.py);  
+  >tegin kontrolli usgs_kont_columnid.py, et näha mis veerud tabelis on. Väljund csv fail milles on veergude metadata
+  >tegin kontrolli usgs_kont_earhquakes_20rida.py, et näha mis andmed tabelis on. Väljund csv 20 rida dataga  
+* transformatsioon ehk sql päring (earthquakes_alert_week.sql) kuvab graafiku (day_alert.py);
 * kontroll st ühe reaga mitu maavärinat kvalifitseerus;
-* lisa andmeallikas https://open-meteo.com - ühendus loodud openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
-> päring lisab ilmaandmed kui maaväirina magmituud on min 5,0 vastavalt maavärina koordinaatidele
+* lisatud andmeallikas https://open-meteo.com - kood openmeteo_maav_ilm_tund.py toob amdmed PostgreSQL andmebaasi tabelisse openmeteo_maav_ilm_tund
+  > päring lisab ilmaandmed kui maaväirina magmituud on minimaalselt 5,0 vastavalt maavärina koordinaatidele
 * aa_koik_jarjest.py käivitab kõik sammud järjest
 
 
@@ -34,28 +29,13 @@ Lühidalt, mis on valmis:
   > kui leeiab maavärina siis milline oli ilm? - puudub
   > SQL - trasformatsioon sma baasi sees - 
   > testid 
-- Esimene tegevus, mis ees ootab]
-- [Teine tegevus]
-- [Kolmas tegevus]
 
 ## Mis takistab
-
 - "Praegu pole blokeerivaid probleeme"
--  [Probleem 1 — näiteks: API tagastab vigaseid väärtusi ühes linnas]
-- [Probleem 2 — või: "Praegu pole blokeerivaid probleeme"]
-
+- oskused ja piiratud aeg 
+  
 ## Kontrollpunkt
-
 Käsk, millega saab kontrollida, et töövoog töötab:
-
-
-```bash
-
-
-
-```bash
-
-
 
 ```bash
 01_käsk,  mis näitab, et andmed liiguvad allikast näidikulauani
