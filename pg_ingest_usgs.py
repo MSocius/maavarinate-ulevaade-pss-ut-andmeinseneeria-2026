@@ -22,7 +22,7 @@ start_time = end_time - timedelta(days=30)
 params = {
     "format": "geojson",
     "starttime": start_time.strftime("%Y-%m-%d"),
-    "endtime": end_time.strftime("%Y-%m-%d"),
+#    "endtime": end_time.strftime("%Y-%m-%d"),
     "limit": 20000
 }
 
