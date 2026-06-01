@@ -12,7 +12,8 @@
 * USGS API andmed salvestatakse PostgreSQL andmebaasi tabelisse earthquakes, mis asub  projekti staging kihis. See on järgmiste transformatsioonide ja vaadete sisend tabel
   > pg_ingest_usgs.py loob tabeli ja laeb tabelisse andmed. Väljund PostgreSQL tabel eartquakes MAAVARIN_PG public skeemis; 
   > usgs_kont_columnid.py kontrollib, mis veerud tabelis on. Väljund csv fail veergude metadataga;
-  > usgs_kont_earthquakes_viimased10paeva.py leiab 10 eelneva päeva maavärinad. Väljund csv.  
+  > usgs_kont_earthquakes_viimased10paeva.py leiab 10 eelneva päeva maavärinad. Väljund csv.
+  > usgs_kont_dup_id.py kontrollib kas PostgreSQL tabel eartquakes on duplikaate id veerus.
 * transformatsioon ehk sql päring (earthquakes_alert_week.sql) kuvab graafiku (day_alert.py);
 * kontroll ühe reaga mitu maavärinat kvalifitseerus;
 * lisatud andmeallikas https://open-meteo.com
