@@ -2,9 +2,12 @@ import subprocess
 
 scripts = [
     "pg_ingest_usgs.py",
-    "openmeteo_maav_ilm_tund.py",
-    "openmeteo_maav_ilm_tund_tabel.py"
-    "day_alert.py"
+    "usgs_kont_earthquakes_viimased10paeva.py",
+    "usgs_kont_nodup_notnull_id.py",
+    "usgs_kont_magnituud_vaartusele.py",
+    "day_alert.py",  # leiab maavärinad
+    "openmeteo_maav_ilm_tund.py",   # "openmeteo_maav_ilm_tund_PWkoodis.py", ¤ leiab ilmastiku vastavalt maavärina koordinaadile
+    "openmeteo_maav_ilm_tund_tabel.py",
 ]
 
 for script in scripts:
