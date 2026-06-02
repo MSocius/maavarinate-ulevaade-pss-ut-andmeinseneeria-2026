@@ -2,7 +2,7 @@ import subprocess
 
 scripts = [
     "pg_ingest_usgs.py",
-    "openmeteo_maav_ilm_tund_PWkoodis.py",
+    "openmeteo_maav_ilm_tund.py",
     "openmeteo_maav_ilm_tund_tabel.py"
     "day_alert.py"
 ]
