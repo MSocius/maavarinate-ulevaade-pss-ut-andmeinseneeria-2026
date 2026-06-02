@@ -61,3 +61,4 @@ plt.show()
 
 cur.close()
 conn.close()
+
