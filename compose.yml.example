@@ -8,28 +8,28 @@
 #   docker compose up -d --build
 
 services:
-
-  # --- Andmebaas ---
-  # Kõigil projektidel on vaja andmebaasi. pgDuckDB toetab nii PostgreSQL-i kui DuckDB päringuid.
   db:
-    image: pgduckdb/pgduckdb:18-v1.1.1
-    container_name: [PROJEKTI-NIMI]-db
+    image: postgres:16   #  image: pgduckdb/pgduckdb:18-v1.1.1
+    container_name: maavarin-db
     env_file:
       - .env
     environment:
-      POSTGRES_USER: ${MAAVARIN_USER}  # prosgres kasutaja nimi
-      POSTGRES_PASSWORD: ${MAAVARIN_PW}  # prosgres parool
-      POSTGRES_DB: ${PGRES_MAAVARIN_DB} # prosgres db nimi
+      POSTGRES_USER: ${MAAVARIN_USER}
+      POSTGRES_PASSWORD: ${MAAVARIN_PW}
+      POSTGRES_DB: ${PGRES_MAAVARIN_DB}
     ports:
       - "${DB_PORT_HOST:-55432}:5432"
     volumes:
-      - ./init:/docker-entrypoint-initdb.d   # SQL-skriptid, mis käivituvad esimesel korral
-      - pgdata:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d   
+      - pgdata:/var/lib/postgresql/data    # pgdata:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-praktikum}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-praktikum}"] # test: ["CMD-SHELL", "pg_isready -U ${MAAVARIN_USER}"]
       interval: 10s
       retries: 5
       start_period: 5s
+
+volumes:
+  pgdata:
 
   # --- Töövoo konteiner (nt Python ETL skript) ---
   # Kasuta seda, kui sul on lihtne Python-põhine töövoog ilma Airflow'ta.
