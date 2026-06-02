@@ -7,6 +7,7 @@ scripts = [
     "usgs_kont_magnituud_vaartusele.py",
     "day_alert.py",
     "openmeteo_maav_ilm_tund.py",
+    "openmeteo_maav_ilm_tund_tabel.py",
 ]
 
 for script in scripts:
