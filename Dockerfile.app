@@ -1,21 +1,17 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . /app
 
-RUN apt-get update && apt-get install -y cron
+EXPOSE 8501
 
-# Install Python dependencies if needed
-# RUN pip install -r requirements.txt
-
-# Copy crontab file
-COPY crontab.txt /etc/cron.d/app-cron
-
-# Give execution rights
-RUN chmod 0644 /etc/cron.d/app-cron
-
-# Apply cron job
-RUN crontab /etc/cron.d/app-cron
-
-CMD ["cron", "-f"]
+CMD ["streamlit", "run", "dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
