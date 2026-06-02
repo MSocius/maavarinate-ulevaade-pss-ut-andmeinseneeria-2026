@@ -1,4 +1,4 @@
-CREATE VIEW earthquakes_alert_week AS
+CREATE OR REPLACE VIEW earthquakes_alert_week AS
 SELECT
     id,
     time,
