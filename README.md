@@ -79,7 +79,7 @@ Vajalikud muutujad:
 | `POSTGRES_DB` | db nimi | MAAVARIN_PG|
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
-| `OPENMETEO_BASE_URL` | andmete asukoht | =https://archive-api.open-meteo.com/v1/archive |
+| `OPENMETEO_BASE_URL` | andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
 | `...` |  ... | ... |
 VÕIMALIK. ET TÄIENDAME 
 
