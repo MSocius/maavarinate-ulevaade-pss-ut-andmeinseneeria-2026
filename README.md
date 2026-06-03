@@ -82,7 +82,7 @@ Vajalikud muutujad:
 | `OPENMETEO_BASE_URL` | andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
 | `SQL_KAUSTA_URL` | SQL transformatsioonid | earthquakes_alert_week.sql |
 | `SUPERSET_PORT_HOST` | port | 8088 |
-| `SUPERSET_SECRET_KEY` | ...  | ....|
+| `SUPERSET_SECRET_KEY` | keskkonna muutuja loomiseks  | ....|
 | `SUPERSET_ADMIN_USER` | brauseris Superset-i logimine | maa |
 | `SUPERSET_ADMIN_PASSWORD` | brauseris Superset-i logimine | varin |
 | `SUPERSET_ADMIN_EMAIL` |
