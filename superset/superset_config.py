@@ -1,7 +1,7 @@
 import os
 
 SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URI"]
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = os.environ["SUPERSET_SECRET_KEY"]
 
 # Õppekeskkonnas hoiame vahemälu lihtsa ja lühikese.
 # Nii on näha, kuidas cron lisab andmeid ja dashboard värskendab päringuid.
