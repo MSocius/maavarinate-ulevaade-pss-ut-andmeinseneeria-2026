@@ -56,7 +56,7 @@ cp .env.example .env
 docker compose up -d --build
 Loob järgmise keskkonna
 > Image: uperset-import; superset; scheduler; superset-init
-> Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
+> Container: maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
 # 4. [Vabatahtlik: käivita sissevõtt käsitsi esimesel korral]
 # docker compose exec pipeline python scripts/run_pipeline.py run-all
