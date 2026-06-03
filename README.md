@@ -58,12 +58,6 @@ Loob järgmise keskkonna
 > Image: uperset-import; superset; scheduler; superset-init
 > Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
-
-MS - mina kasutan CMD
-git pull - tõmbab repo uuendused oma pc-sse
-pip install duckdb - paigaldab andmebaasi. Võiks paigaldada prosgre selle asemel
-python ingest_usgs.py - kood leiab env failist muutujad ja salvestab ducdb andmebaasi
-
 # 4. [Vabatahtlik: käivita sissevõtt käsitsi esimesel korral]
 # docker compose exec pipeline python scripts/run_pipeline.py run-all
 ```
