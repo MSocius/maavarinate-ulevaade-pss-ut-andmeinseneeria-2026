@@ -1,1 +1,0 @@
-0 * * * * python3 /app/aa_koik_jarjest.py >> /app/cron.log 2>&1
