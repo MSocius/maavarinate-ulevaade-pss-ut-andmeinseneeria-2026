@@ -80,7 +80,7 @@ Vajalikud muutujad:
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
 | `OPENMETEO_BASE_URL` | andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
-| `SQL_KAUSTA_URL` | sgl transformatsioonid | earthquakes_alert_week.sql |
+| `SQL_KAUSTA_URL` | SQL transformatsioonid | earthquakes_alert_week.sql |
 | `SUPERSET_PORT_HOST` | port | 8088 |
 | `SUPERSET_SECRET_KEY` | ...  | ....|
 | `SUPERSET_ADMIN_USER` | maa | ... |
