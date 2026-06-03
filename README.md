@@ -83,8 +83,8 @@ Vajalikud muutujad:
 | `SQL_KAUSTA_URL` | SQL transformatsioonid | earthquakes_alert_week.sql |
 | `SUPERSET_PORT_HOST` | port | 8088 |
 | `SUPERSET_SECRET_KEY` | ...  | ....|
-| `SUPERSET_ADMIN_USER` | maa | ... |
-| `SUPERSET_ADMIN_PASSWORD` | varin | ... |
+| `SUPERSET_ADMIN_USER` | brauseris Superset-i logimine | maa |
+| `SUPERSET_ADMIN_PASSWORD` | brauseris Superset-i logimine | varin |
 | `SUPERSET_ADMIN_EMAIL` |
 | `...` |  ... | ... |
 VÕIMALIK. ET TÄIENDAME 
