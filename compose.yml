@@ -7,7 +7,9 @@
 #   cp .env.example .env
 #   docker compose up -d --build
 
+ 
 services:
+  # --- PostgreSQL ---
   db:
     image: postgres:16   #  image: pgduckdb/pgduckdb:18-v1.1.1
     container_name: maavarin-db
@@ -23,77 +25,140 @@ services:
       - ./init:/docker-entrypoint-initdb.d   
       - pgdata:/var/lib/postgresql/data    # pgdata:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-praktikum}"] # test: ["CMD-SHELL", "pg_isready -U ${MAAVARIN_USER}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-praktikum}"] # test: ["CMD-SHELL", "pg_isready -U ${MAAVARIN_USER}"] kumba parooli kasutada? praktikum/MAAVARIN_USER
       interval: 10s
       retries: 5
       start_period: 5s
 
 
-  dashboard:
+  # --- PostgreSQL ---
+  # db:
+    # image: postgres:16
+    # container_name: maavarin-db
+    # env_file:
+      #- .env
+    # environment:
+      # POSTGRES_USER: ${MAAVARIN_USER}
+      # POSTGRES_PASSWORD: ${MAAVARIN_PW}
+      # POSTGRES_DB: ${PGRES_MAAVARIN_DB}
+    # ports:
+      #- "${DB_PORT_HOST:-55432}:5432"
+    # volumes:
+      #- ./init:/docker-entrypoint-initdb.d
+      #- pgdata:/var/lib/postgresql/data
+    # healthcheck:
+      # test: ["CMD-SHELL", "pg_isready -U ${MAAVARIN_USER}"]
+      # interval: 10s
+      # retries: 5
+      # start_period: 5s
+
+  # --- Scheduler (cron, praktikum 04/09 stiilis) ---
+  scheduler:
     build:
       context: .
-      dockerfile: Dockerfile.app
-    container_name: dashboard
-    ports:
-      - "${DASHBOARD_PORT_HOST:-8501}:8501"
+      dockerfile: Dockerfile.scheduler
+    container_name: maavarin-scheduler
     env_file:
       - .env
-    volumes:
-      - .:/app
-    command: streamlit run dashboard.py --server.port=8501 --server.address=0.0.0.0
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: ${MAAVARIN_USER}
+      DB_PASSWORD: ${MAAVARIN_PW}
+      DB_NAME: ${PGRES_MAAVARIN_DB}
+      TZ: ${TZ:-Europe/Tallinn}
+      PGHOST: db
+      PGPORT: "5432"
+      PGUSER: ${MAAVARIN_USER}
+      PGPASSWORD: ${MAAVARIN_PW}
+      PGDATABASE: ${PGRES_MAAVARIN_DB}
+      PGTZ: ${TZ:-Europe/Tallinn}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    volumes:
+      - ./scripts:/app/scripts
+      - ./scheduler:/app/scheduler
+      - ./logs:/var/log/maavarin
+    working_dir: /app
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep cron >/dev/null"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
 
+  # --- Superset INIT (ühekordne seadistus) ---
+  superset-init:
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    container_name: maavarin-superset-init
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./superset/superset_config.py:/app/superset_config.py
+      - superset_home:/app/superset_home
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+      DATABASE_URI: "postgresql+psycopg2://${MAAVARIN_USER}:${MAAVARIN_PW}@db:5432/${PGRES_MAAVARIN_DB}"
+      SECRET_KEY: ${SUPERSET_SECRET_KEY:-maavarin_secret_key}
+      TZ: ${TZ:-Europe/Tallinn}
+      ADMIN_USERNAME: ${SUPERSET_ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD:-admin123}
+      ADMIN_EMAIL: ${SUPERSET_ADMIN_EMAIL:-admin@example.com}
+    command:
+      - /bin/sh
+      - -c
+      - "superset db upgrade && (superset fab create-admin --username $${ADMIN_USERNAME} --firstname Admin --lastname User --email $${ADMIN_EMAIL} --password $${ADMIN_PASSWORD} || true) && superset init"
+    restart: "no"
 
-  # --- Töövoo konteiner (nt Python ETL skript) ---
-  # Kasuta seda, kui sul on lihtne Python-põhine töövoog ilma Airflow'ta.
-  # Airflow-põhise stacki puhul asenda selle sektsioon airflow/* teenustega
-  # (vaata naidisprojekt-ilmaandmed-dbt-ja-airflow/compose.yml).
-  #
-  # pipeline:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.app
-  #   container_name: [PROJEKTI-NIMI]-pipeline
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     DB_HOST: db
-  #     DB_PORT: "5432"
-  #     DB_USER: ${POSTGRES_USER}
-  #     DB_PASSWORD: ${POSTGRES_PASSWORD}
-  #     DB_NAME: ${POSTGRES_DB}
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   volumes:
-  #     - ./scripts:/app/scripts
-  #   working_dir: /app
-  #   tty: true
+  # --- Superset IMPORT (dashboard + datasetid) ---
+  superset-import:
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    container_name: maavarin-superset-import
+    depends_on:
+      superset-init:
+        condition: service_completed_successfully
+    volumes:
+      - ./superset/superset_config.py:/app/superset_config.py
+      - ./superset:/app/maavarin_superset
+      - superset_home:/app/superset_home
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+      DATABASE_URI: "postgresql+psycopg2://${MAAVARIN_USER}:${MAAVARIN_PW}@db:5432/${PGRES_MAAVARIN_DB}"
+      TZ: ${TZ:-Europe/Tallinn}
+      SUPERSET_ADMIN_USER: ${SUPERSET_ADMIN_USER:-admin}
+      SECRET_KEY: ${SUPERSET_SECRET_KEY:-maavarin_secret_key}
+    command:
+      - /bin/sh
+      - -c
+      - "python /app/maavarin_superset/zip_dashboard.py /app/maavarin_superset/dashboard_export /tmp/maavarin_dashboard.zip && superset import-dashboards --path /tmp/maavarin_dashboard.zip --username $${SUPERSET_ADMIN_USER}"
+    restart: "no"
 
-  # --- Näidikulaud ---
-  # Streamliti põhine näide. Superset-põhise stacki puhul vaata
-  # naidisprojekt-ilmaandmed-dbt-ja-airflow/compose.yml.
-  #
-  # dashboard:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.app
-  #   container_name: [PROJEKTI-NIMI]-dashboard
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     DB_HOST: db
-  #     DB_PORT: "5432"
-  #     DB_USER: ${POSTGRES_USER}
-  #     DB_PASSWORD: ${POSTGRES_PASSWORD}
-  #     DB_NAME: ${POSTGRES_DB}
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   ports:
-  #     - "${DASHBOARD_PORT_HOST:-8501}:8501"
-  #   command: ["streamlit", "run", "dashboard/app.py", "--server.address=0.0.0.0"]
+  # --- Superset UI ---
+  superset:
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    container_name: maavarin-superset
+    depends_on:
+      superset-import:
+        condition: service_completed_successfully
+    ports:
+      - "${SUPERSET_PORT_HOST:-8088}:8088"
+    volumes:
+      - ./superset/superset_config.py:/app/superset_config.py
+      - superset_home:/app/superset_home
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+      DATABASE_URI: "postgresql+psycopg2://${MAAVARIN_USER}:${MAAVARIN_PW}@db:5432/${PGRES_MAAVARIN_DB}"
+      SECRET_KEY: ${SUPERSET_SECRET_KEY:-maavarin_secret_key}
+      TZ: ${TZ:-Europe/Tallinn}
+    command: ["/app/docker/entrypoints/run-server.sh"]
 
 volumes:
   pgdata:
+  superset_home:
