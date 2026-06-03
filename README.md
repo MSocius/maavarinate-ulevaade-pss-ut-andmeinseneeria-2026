@@ -134,7 +134,7 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 - Andmete laadimine andmebaasi töötab.
 - 2026.a maikuu kõikide registreeritud maavärinate andmed on alla laetud, et uurida andmekoosseise, andmete vormingut, puuduvaid väärtusi jms teisendamiseks ja andmekontrollideks vajalikku infot.
 - Grupp suhtleb omavahel grupivestluses, iga grupiliige on "toru võtnud".
-- Palju palju aega kulus koodile: paroolide ja kasutajanimede ülesseadmisel on vaja väga suurt täpsust (einevate failide koostööks), mõnes koodis on tühi rida vajalik ja teises kohas ei ole lubatud, koodi taandused ja kommentaarid.
+- Liiga palju aega kulus koodile: paroolide ja kasutajanimede ülesseadmisel on vaja väga suurt täpsust (einevate failide koostööks), mõnes koodis on tühi rida vajalik ja teises kohas ei ole lubatud, koodi taandused ja kommentaarid.
 - 
 
 **Puudused:**
