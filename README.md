@@ -55,7 +55,7 @@ cp .env.example .env
 # 3. Käivita teenused
 docker compose up -d --build
 Loob järgmise keskkonna
-> Image`d: superset-import; superset; scheduler; superset-init
+> Image: uperset-import; superset; scheduler; superset-init
 > Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
 
