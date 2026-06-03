@@ -58,6 +58,10 @@ cp .env.example .env
 
 # 3. Käivita teenused
 docker compose up -d --build
+Loob järgmised
+> Image`d: superset-import; superset; scheduler; superset-init
+> Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
+
 
 MS - mina kasutan CMD
 git pull - tõmbab repo uuendused oma pc-sse
