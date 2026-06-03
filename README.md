@@ -80,7 +80,7 @@ Vajalikud muutujad:
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
 | `OPENMETEO_BASE_URL` | andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
-| `SQL_KAUSTA_URL` |transformatsioon/sql/|
+| `SQL_KAUSTA_URL` | transformatsioon | earthquakes_alert_week.sql |
 | `...` |  ... | ... |
 VÕIMALIK. ET TÄIENDAME 
 
