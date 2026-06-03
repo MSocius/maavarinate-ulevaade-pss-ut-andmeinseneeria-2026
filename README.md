@@ -48,17 +48,13 @@ git clone https://github.com/MSocius/maavarinate-ulevaade-pss-ut-andmeinseneeria
 cd maavarinate-ulevaade-pss-ut-andmeinseneeria-2026
 git pull
 
-Image`d: superset-import; superset; scheduler; superset-init 
-Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset     
-
-
 # 2. Kopeeri keskkonnamuutujad
 cp .env.example .env
 .env.example .env - on hetkel ka maavärinate spetsiifilised andmed, siis tulevad need "git pull" abil oma pc-sse
 
 # 3. Käivita teenused
 docker compose up -d --build
-Loob järgmised
+Loob järgmise keskkonna
 > Image`d: superset-import; superset; scheduler; superset-init
 > Container:maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
