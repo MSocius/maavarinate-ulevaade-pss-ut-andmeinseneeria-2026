@@ -1,0 +1,41 @@
+
+Kui openmeteo_maav_ilm_tund tabel on Prosgre DB-s ja Superset -I dataseti leitav, siis kõik on OK.
+Kui see table puudub, siis põhjus on ilmselt järgmine:
+
+1. openmeteo_maav_ilm_tund.py saa sisendit 
+2. Sisend: Prosgre query-lt "earthquakes_alert_week" 
+3 day_alert.py jooksutamisel peab tekkima "earthquakes_alert_week" query
+3.1 day_alert.py sql päringu prosgre-sse. Aaades faili aadressil \transformations\sql\earthquakes_alert_week.sql
+3.2 kui py ebaõnnestub SQL päringu loomisel, siis salvesta käsitsi kood käsitsi salvestada prosgresse ja uuesti käivitada (openmeteo_maav_ilm_tund.py või aa_koik_jarjest.py)
+4 earthquakes_alert_week - järgi teeb openmeteo_maav_ilm_tund.py tabeli openmeteo_maav_ilm_tund (see peaks olema nähtav prosgre tabelina ja valitav Supersetis datasetina)
+
+SQL faili on leitav: \transformations\sql\earthquakes_alert_week.sql
+koodi võib otse Prosgresse kopeerida.
+
+penmeteo_maav_ilm_tund.py ei saa sisndit ja tabelit 
+
+siesne prosgresse
+docker compose exec db psql -U meiegrupp -d MAAVARIN_PG     # käivitab prosgre
+\q     # andmebaasist väljumine
+
+PROSGRE
+docker compose exec db psql -U meiegrupp -d MAAVARIN_PG     # käivitab prosgre
+\q     # andmebaasist väljumine
+\dt    # tabelite nimkiri
+\dv    # Kui tahad näha ka vaateid:  
+\ds    # kõiki objekte (tabelid + vaated + sekvents + indeksid):
+\d+ earthquakes_alert_week   # \d+ view_nimi  st see  # mis SQL‑iga vaade on loodud?
+\d earthquakes   # \d tabelinimi  # tabeli struktuuri vaade
+
+\dt          – tabelid
+\dv          – vaated
+\ds          – kõik objektid
+\d nimi      – tabeli/vaate struktuur
+\d+ nimi     – vaate SQL definitsioon
+SELECT ...   – päringu tulemused   # näiteks SELECT * FROM earthquakes LIMIT 20;
+\x auto      – ilus tabelivaade
+\x off       - ilus tabelivaade
+
+
+
+
