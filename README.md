@@ -1,4 +1,4 @@
-# GRUPP VÄRIN — VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
+# GRUPP VÄRIN. VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
 
 ## Äriküsimus
 
@@ -13,7 +13,7 @@ Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageer
 3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
 4. Reageerimist vajava ohutasemega maavärina asukoha ilmainfo.
 
-Täpsem arvutuskäik: [`docs/arhitektuur.md`](docs/arhitektuur.md)
+Täpsem info mõõdikute kohta koos arvutuskäiguga: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 ## Arhitektuur
 
@@ -34,16 +34,13 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 | Sissevõtt | Python | 
 | Transformatsioon | SQL, vajadusel dbt | 
 | Andmehoidla | PostgreSQL (DuckDB kasutasime ühenduse testimiseks) |
-| Näidikulaud | [Superset / Streamlit / muu] |
-| Orkestreerimine | [Airflow / cron / muu] |
+| Näidikulaud | Superset |
+| Orkestreerimine | cron |
 
 ## Käivitamine
 
 ```bash
 # 1. Klooni repo ja liigu kausta
-git clone <repo-url>
-cd <projekti-kaust>
-
 git clone https://github.com/MSocius/maavarinate-ulevaade-pss-ut-andmeinseneeria-2026
 cd maavarinate-ulevaade-pss-ut-andmeinseneeria-2026
 git pull
@@ -61,25 +58,23 @@ Loob järgmise keskkonna
 # 4. [Vabatahtlik: käivita sissevõtt käsitsi esimesel korral]
 # docker compose exec pipeline python scripts/run_pipeline.py run-all
 ```
-
-Airflow (kui kasutatakse): http://localhost:8080 (kasutaja: airflow / parool: airflow)
-Näidikulaud: http://localhost:[PORT]
+Näidikulaud: http://localhost:8088
 
 ## Saladused ja konfiguratsioon
 
-Kõik saladused (paroolid, API võtmed, andmebaasi URL-id) on `.env` failis. Repos on ainult `.env.example`, mis näitab vajalike muutujate struktuuri ilma tegelike väärtusteta. Päris `.env` faili ei tohi GitHubi panna - see on `.gitignore`-s.
+Kõik saladused (paroolid, API võtmed, andmebaasi URL-id) on `.env` failis. Repos on ainult `.env.example`, mis näitab vajalike muutujate struktuuri ilma tegelike väärtusteta. Päris `.env` fail on `.gitignore`-s.
 
 Vajalikud muutujad:
 
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
-| `USGS_URL` | andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query |
+| `USGS_URL` | maavärinate andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query |
 | `POSTGRES_USER` | db kasutaja | meiegrupp |
 | `POSTGRES_PASSWORD` | parool | meieparool |
 | `POSTGRES_DB` | db nimi | MAAVARIN_PG|
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
-| `OPENMETEO_BASE_URL` | andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
+| `OPENMETEO_BASE_URL` | ilmastiku andmete asukoht | https://archive-api.open-meteo.com/v1/archive |
 | `SQL_KAUSTA_URL` | SQL transformatsioonid | earthquakes_alert_week.sql |
 | `SUPERSET_PORT_HOST` | port | 8088 |
 | `SUPERSET_SECRET_KEY` | keskkonna muutuja loomiseks  | SECRET_KEY |
@@ -87,12 +82,11 @@ Vajalikud muutujad:
 | `SUPERSET_ADMIN_PASSWORD` | brauseris Superset-i logimine | varin |
 | `SUPERSET_ADMIN_EMAIL` |
 | `...` |  ... | ... |
-VÕIMALIK. ET TÄIENDAME 
 
 
 ## Andmevoog lühidalt
 
-1. **Sissevõtt** —  Py script aa_koik_jarjest.py käivitab erinevad py-d
+1. **Sissevõtt** —  Pythoni script aa_koik_jarjest.py käivitab erinevad py-d
     > pg_ingest_usgs.py kraabib USGS API-st toorandmed. API lingi ja paroolid on env failis.
     > earthquakes_alert_week.sgl leiab viimase 7 päeva ja >= 5 magnituudiga
     > openmeteo_maav_ilm_tund.py kraabib 7 päeva ilmaandmed vastavalt koordinaadile OpenMeteo baasist (+/- 36 tundi).
@@ -108,7 +102,6 @@ Kontrollime järgmisi näitajaid:
 3. Magintuudid ei ole negatiivse väärtusega
 4. Konventeeritud UnixTimestamp annab tagasi UTC, mis on loogiline, st mahub viimase nädala/kuu sisse
 5. Konveneeritud UnixTimeStamp ei ole tulevikus ega varasemas minevikus kui meie päritud andmed  
-LISAME TESTE KUI OLEME ANDMETEGA ROHKEM TÖÖD TEINUD 
 
 Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 
@@ -129,32 +122,19 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 ## Kokkuvõte, puudused ja võimalikud edasiarendused
 
 **Kokkuvõte:**
-- [Loetle, mis on lõpule viidud, mis töötab hästi]
 - GitHub-i Codespaces ja pc CMD`s töötab paralleeleselt. 
-- Andmete laadimine andmebaasi töötab.
-- 2026.a maikuu kõikide registreeritud maavärinate andmed on alla laetud, et uurida andmekoosseise, andmete vormingut, puuduvaid väärtusi jms teisendamiseks ja andmekontrollideks vajalikku infot.
-- Grupp suhtleb omavahel grupivestluses, iga grupiliige on "toru võtnud".
+- Andmete laadimine andmebaasi töötab, samuti esimese päringu alusel tehtud järgmise andmeallika andmete pärimine toimib
 - Liiga palju aega kulus seadistusele ja koodile:
   > paroolide ja kasutajanimede ülesseadmisel on vaja väga suurt täpsust (einevate failide koostööks),
   > mõnes koodis on tühi rida vajalik ja teises kohas ei ole lubatud,
   > jne
 - Uute tarkvarade rakendamiseks jäi aega väheks.
-- 
+- kohustuslikud projekti osad täidetud, kuid vilumust kõikide vajalike tarkvarade kasutamiseks ei tekkinud 
 
 **Puudused:**
-- [Loetle ausalt, mis jäi tegemata - see ei mõjuta hinnet negatiivselt, vaid aitab hinnata]
 - Süsteemide loogika ja seadistustega on veel vaja katsetada. GitHubi Codespaces ei ole piisavat töökindlust. 
-- Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
-- Projektiplaani, ideid, rolle ja lahendusi ei ole saanud grupiga koos läbi arutada
-- 
-
-**Mis edasi:**
-- [Mida tahaksid edasi teha, kui aega oleks rohkem]
-- Andmeallikaid oleks juurde vaja integreerida.
-- Ajaloolisi maavärinate andmeid tuleb veel veidi uurida, et teaks täpsemalt, millised andmekontrolle, transformatsioone ja juhtimislaudu teha, et äriküsimusele võimalikult hästi vastata.
-- Praegu valisime mõõdikud äriprobleemi järgi, kuid peab vaatama, et me päris sama väljundit looma ei hakkaks, mis USGS lehel juba olemas on :)
-- Peaks tegema ühise grupikohtumise, et projektiplaan läbi arutada, praegu toimetame asünkroonselt
-- Põnev oleks jah, andmeid mõne teise andmeallikaga siduda, et saaks tekkida uut teadmist, mitte lihtsalt statistiline ülevaade
+- Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile, mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
+- Selleks, et luua lahendus, mis oleks viimistletud ja valmis päriselt kasutusele võtmiseks, läheks kordades rohkem aega.
 
 **Riskid ja nende maandamine:**
 
