@@ -68,8 +68,8 @@ Loob järgmise keskkonna
 > Image: uperset-import; superset; scheduler; superset-init
 > Container: maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
-# 4. Käivita sissevõtt esimesel korral
-# docker compose exec pipeline python scripts/run_pipeline.py run-all
+# 4. Käivita kõik tegevused ühe koodiga  
+py aa_koik_jarjest.py
 ```
 Näidikulaud: http://localhost:8088
 
