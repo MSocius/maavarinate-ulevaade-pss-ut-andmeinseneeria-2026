@@ -24,7 +24,7 @@ echo "[scheduler] Cron käivitus $(date --iso-8601=seconds)" >> /var/log/maavari
 # Käivitame ühe mikrobatch'i kohe, et dashboard hakkaks pärast avamist muutuma
 # ka siis, kui järgmise cron-minutini on veel veidi aega.
 cd /app
-/usr/local/bin/python scripts/microbatch.py run-scheduled >> /var/log/maavarin/pipeline.log 2>&1    # /usr/local/bin/python scripts/microbatch.py run-scheduled >> /var/log/praktikum/pipeline.log 2>&1
+/usr/local/bin/python scripts/syyde.py run-scheduled >> /var/log/maavarin/pipeline.log 2>&1    # /usr/local/bin/python scripts/microbatch.py run-scheduled >> /var/log/praktikum/pipeline.log 2>&1
 
 # `cron -f` hoiab konteineri töös. Ilma selleta lõpeks konteiner kohe pärast
 # esimest käivitust ära.
