@@ -1,0 +1,24 @@
+Püüan teha piirkondade järgi sagedusjaotust. Kuna meil earthquakes failis on asukoht tekstiväljana kujul:
+2 km N of The Geysers, CA
+29 km E of Pedro Bay, Alaska
+202 km SSE of Vilyuchinsk, Russia
+18 km SE of Silver Springs, Nevada
+
+siis oleks vaja transformatsioonide koodi täiendada nii, et sellest tunnusest saaks kaks uut tunnust. Copilot ütles, 
+et selline kood pidi PostgreSQL puhul kõige tavalisem olema.
+
+SELECT
+    place,
+    split_part(place, ',', 1) AS location,
+    trim(split_part(place, ',', 2)) AS region
+FROM your_table;
+
+ja koos uutesse veergudesse kirjutamisega kood:
+ALTER TABLE your_table
+ADD COLUMN location text,
+ADD COLUMN region text;
+
+UPDATE your_table
+SET
+    location = split_part(place, ',', 1),
+    region   = trim(split_part(place, ',', 2));
