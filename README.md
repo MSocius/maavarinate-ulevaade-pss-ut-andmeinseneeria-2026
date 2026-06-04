@@ -17,6 +17,19 @@ Täpsem info mõõdikute kohta koos arvutuskäiguga: [`docs/arhitektuur.md`](doc
 
 ## Arhitektuur
 
+```mermaid
+flowchart LR
+    api[USGS Earthquake] --> ingest[Python sissevõtt]
+    seed[Open-Meteo Forecast] --> ingest
+    scheduler[Cron scheduler] --> ingest
+    ingest --> staging[(staging)]
+    staging --> transform[SQL transformatsioon]
+    staging --> quality[Kvaliteedikontroll]
+    transform --> mart[(mart)]
+    quality --> qualmart[(qual_mart)]
+    mart --> dashboard[Näidikulaud]
+```
+
 Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 
 ## Andmestik
@@ -55,7 +68,7 @@ Loob järgmise keskkonna
 > Image: uperset-import; superset; scheduler; superset-init
 > Container: maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
-# 4. [Vabatahtlik: käivita sissevõtt käsitsi esimesel korral]
+# 4. Käivita sissevõtt esimesel korral
 # docker compose exec pipeline python scripts/run_pipeline.py run-all
 ```
 Näidikulaud: http://localhost:8088
@@ -69,8 +82,8 @@ Vajalikud muutujad:
 | Muutuja | Tähendus | Näide |
 |---------|----------|-------|
 | `USGS_URL` | maavärinate andmete asukoht | https://earthquake.usgs.gov/fdsnws/event/1/query |
-| `POSTGRES_USER` | db kasutaja | meiegrupp |
-| `POSTGRES_PASSWORD` | parool | meieparool |
+| `POSTGRES_USER` | db kasutaja | (kasutaja) |
+| `POSTGRES_PASSWORD` | parool | (parool) |
 | `POSTGRES_DB` | db nimi | MAAVARIN_PG|
 | `DB_PORT_HOST` | port | 55432 |
 | `...` |  ... | ... |
@@ -78,8 +91,8 @@ Vajalikud muutujad:
 | `SQL_KAUSTA_URL` | SQL transformatsioonid | earthquakes_alert_week.sql |
 | `SUPERSET_PORT_HOST` | port | 8088 |
 | `SUPERSET_SECRET_KEY` | keskkonna muutuja loomiseks  | SECRET_KEY |
-| `SUPERSET_ADMIN_USER` | brauseris Superset-i logimine | maa |
-| `SUPERSET_ADMIN_PASSWORD` | brauseris Superset-i logimine | varin |
+| `SUPERSET_ADMIN_USER` | brauseris Superset-i logimine | (kasutaja) |
+| `SUPERSET_ADMIN_PASSWORD` | brauseris Superset-i logimine | (parool) |
 | `SUPERSET_ADMIN_EMAIL` |
 | `...` |  ... | ... |
 
@@ -136,11 +149,16 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 - Seadistused on algajale keerulised. Peamiselt kasutades Windowsi, siis hetkel on palju detaile, mis takistavad ja tekitavad segadust. Selle loogikaga vaja veel harjuda. 
 - Selleks, et luua lahendus, mis oleks viimistletud ja valmis päriselt kasutusele võtmiseks, läheks kordades rohkem aega.
 
+**Mis edasi:**
+- mõned täiendkoolituses kasutatud programmid ja lähenemised on meile ka tööalaselt kasutatavad, neid tahaks uurida edasi ja kasutamise vilumust saada
+- tahaks katsetada sarnasel moel endale või tööks kasulikke andmestikke kokku tuua Eesti avaandmete portaalist
+-  üsna tükk aega end enam mitte nii ebakompetentsena tunda :D:D
+
 **Riskid ja nende maandamine:**
 
 | jrk | Risk | Maandamine |
 |---------|----------|-------|
-| 1. | Projekt ei jõua õigeaegselt valmis (grupiliikmetel ei ole piisavalt aega/motivatsiooni/jaksu panustada, püütakse teha hästi palju või hästi põhjalikult, ei küsita abi või jäädakse oskamatuse tõttu hätta) | Lepime kokku miinimum versiooni projektist, mis kindlasti ettenähtud ajaga ellu viiakse. Nice-to-have osad, mis võivad olla põnevad või arendavad, võtame tegeleda siis kui miinimum on tehtud. Hoiame grupiga ühendust, lepime kokku ühised aruteluajad, sh mentoriga. Hoiame avatud suhtlusstiili ja tunnistame kui ei oska või mõni nädal ei jõua panustada. |
+| 1. | Projekt ei jõua õigeaegselt valmis (grupiliikmetel ei ole piisavalt aega/motivatsiooni/jaksu panustada, püütakse teha hästi palju või hästi põhjalikult, ei küsita abi või jäädakse oskamatuse tõttu hätta) | Lepime kokku miinimum versiooni projektist, mis kindlasti ettenähtud ajaga ellu viiakse. Nice-to-have osad, mis võivad olla põnevad või arendavad, võtame tegeleda siis kui miinimum on tehtud. Hoiame omavahel ühendust, lepime kokku ühised aruteluajad, sh mentoriga. Hoiame avatud suhtlusstiili ja tunnistame kui ei oska või mõni nädal ei jõua panustada.|
 | 2. | Kõiki vajalikke tarkvarasid ei õnnestu omavahel koos toimima saada nii, et andmetorud, andmekontrollid ja visuaalid toimiksid veavabalt. | Küsime nõu, arutame teiste kursusel osalejatega, googeldame ja kasutame nõu saamiseks tehisintellekti abi. Ei üritada maailma parimat lahendust luua, vaid keskendume kõige olulisemale. Kui vaja, valime tööks tarkvarad, mida loengus ja praktikumides õpetati. |
 | 3. | Reageerimist vajavaid maavärinaid toimub nii harva ja nii erinevais paigus, et meie loodud juhtimislaua abil ei ole tegelikult võimalik äriküsimustes viidatud probleeme lahendada ja kiiremini, teadlikumalt ohust teavitada, kriise juhtida jms | Kaks valikut: a) Kirjeldame lahti, milliseid tugisüsteeme oleks veel lisaks meie lahendusele luua, et kokkupandavast infost oleks abi  või b) sõnastame äriküsimuse ümber, jätame alles ainult ühe kasusaaja või kitsendame maavärinate piirkondi, nii et oleks võimalik teavitussüsteem ja/või kriisijuhtimine sellele väljundile tuginevalt üles ehitada.
 | 4. | Me ei suuda saadud andmeid korrektselt tõlgendada ega vajalikke transformatsioone ja andmekontrolle teha, kuna meil ei ole selle valdkonna tausta. | Toetume USGS veebilehel juba välja antud statistikale ja liigitustele. Loeme USGS lehel olevaid ülevaateid ja uudisnupukesi, et mitte põhiinfoga eksida. Loeme põhjalikult läbi USGS lehel oleva API kirjelduse ja  metaandmete kirjeldused. Arutame omavahel läbi, kas saime kõik andmetest sama moodi aru. |
@@ -151,5 +169,5 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 
 | Nimi | Roll |
 |------|------|
-| Katre Seema | Riskid, andmekontrollid ja -teisendused, arhitektuur|
-| Margus Soots | andmeallika, transformatsioonide, näidikulaua omanik |
+| Katre Seema | Riskid, andmekontrollide ja -teisenduste kirjeldamine, arhitektuuripildi ja dokumentatsiooni viimislemine|
+| Margus Soots | REPO omanik, andmeallikate liidestamine, pytoni ja SQL koodid, näidikulaua tarkvara ühenduvus, kooditäiendused ja automatiseerimine |
