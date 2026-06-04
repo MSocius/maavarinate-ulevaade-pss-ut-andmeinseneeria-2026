@@ -152,7 +152,7 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 **Mis edasi:**
 - mõned täiendkoolituses kasutatud programmid ja lähenemised on meile ka tööalaselt kasutatavad, neid tahaks uurida edasi ja kasutamise vilumust saada
 - tahaks katsetada sarnasel moel endale või tööks kasulikke andmestikke kokku tuua Eesti avaandmete portaalist
--  üsna tükk aega end enam mitte nii ebakompetentsena tunda :D:D
+- tahaks üsna tükk aega end enam mitte nii ebakompetentsena tunda :D:D
 
 **Riskid ja nende maandamine:**
 
