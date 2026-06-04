@@ -42,4 +42,8 @@ SET
         ELSE NULL
     END;
 
-3. 
+3. selleks, et mingitlaadi ilmamuutust toimumisaja ja sellele järgneva 2h või 3h pärast välja kuvada, on mul vaja, et maavärinate faili kirjutataks juurde ka ilmainfo toimumise hetkel (toimumise tunnil) ja siis kindel arv tunde hiljem. Seda peaks miskitlaadi joiniga tegema. Kui mul praegu openmeteo failis on ainult maavärina id ja mitukümmend rida ilmainfoga, siis graafikut tehes ma ei näe, mis oli selle konkreetese maavärina toimumise aeg ja mul on 0 ideed, millise tunnuse järgi ma peaksin "sel ajahetkel kehtinud" ilmainfo valima.
+Muidugi võime jääda miinimumülesande juurde, et näitame välja vähemalt kahe mõõdiku tulemusi, kuid kui me ilma kohta midagi ei näita, tundub pointless neid ilmastiku andmeid üldse sisse tuua.
+ma proovisin erinevaid graafikuid, midagi on olemas, kuid pean veel homme-ülehomme tuunima neid
+
+
