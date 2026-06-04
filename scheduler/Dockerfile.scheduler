@@ -18,4 +18,7 @@ COPY scheduler/entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r$//' /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
+# CRONTAB
+COPY scheduler/crontab /app/scheduler/crontab
+
 ENTRYPOINT ["/entrypoint.sh"]
