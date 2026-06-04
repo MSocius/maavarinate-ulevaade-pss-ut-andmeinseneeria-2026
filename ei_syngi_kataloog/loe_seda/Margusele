@@ -9,14 +9,36 @@ Tegelen Supersetis jooniste tegemisega. Oleks natuke tarvis SQL koodides transfo
 
 siis ma sel kujul ei saa histogrammi teha piirkondadest. Vaja on transformatsioonide koodi täiendada nii, et sellest tunnusest saaks kaks uut tunnust. Copilot ütles, 
 et selline kood pidi PostgreSQL puhul kõige tavalisem olema:
-koos uutesse veergudesse kirjutamisega kood:
+koos uutesse veergudesse kirjutamisega nii :
+
+    location = split_part(place, ',', 1),
+    region   = trim(split_part(place, ',', 2));
+/terve kood on kohe siin nr 2 punkti all koos teise koodiga!
+
+2. mis tunnusesse sai kirjutatud transformatsioon, mis rühmitab magnituude? 
+Readme failis on kirjas: Magnituudi kategooriad:mikro — magnituud alla <2, väike 2 .. 4, mõõdukas = 4 .. 6, tugev = 6 .. 7, väga tugev st üle 7
+need uued tunnused sarnaselt eelmisele, võiks ka transformatsioonina earthquakes faili kirjutada. Tegin rühmad ümber nii, et ka see magnituud 5 oleks rühma piiriks, 
+ehk siis on loogiline vaadata üle 5 magnituudiga maavärinate arvu ja üldist jaotust tugevuste järgi.
+
+kood kahe transformatsiooni jaoks (sisaldab piirkondade järgi ja magnituudi järgi rühmitamist ja uutesse tunnustesse kirjutamist
+-- 1. Lisa uued veerud
 ALTER TABLE earthquakes
 ADD COLUMN location text,
-ADD COLUMN region text;
+ADD COLUMN region text,
+ADD COLUMN magnitude2 text;
 
+-- 2. Täida veerud väärtustega
 UPDATE earthquakes
 SET
     location = split_part(place, ',', 1),
-    region   = trim(split_part(place, ',', 2));
+    region   = trim(split_part(place, ',', 2)),
+    magnitude2 = CASE
+        WHEN magnitude < 2 THEN 'alla 2'
+        WHEN magnitude >= 2 AND magnitude < 4 THEN '2-3,99'
+        WHEN magnitude >= 4 AND magnitude < 5 THEN '4-4,99'
+        WHEN magnitude >= 5 AND magnitude < 6 THEN '5-5,99'
+        WHEN magnitude >= 6 THEN '6 või tugevam'
+        ELSE NULL
+    END;
 
-2. mis tunnusesse sai kirjutatud transformatsioon, mis rühmitab magnituude?
+3. 
