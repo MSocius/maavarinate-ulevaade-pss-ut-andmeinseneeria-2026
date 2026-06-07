@@ -170,5 +170,5 @@ Testide tulemused salvestatakse eraldi andmebaasi **qual_mart**
 
 | Nimi | Roll |
 |------|------|
-| Katre Seema | Riskid, andmekontrollide ja -teisenduste kirjeldamine, arhitektuuripildi ja dokumentatsiooni viimislemine|
-| Margus Soots | REPO omanik, andmeallikate liidestamine, pytoni ja SQL koodid, näidikulaua tarkvara ühenduvus, kooditäiendused ja automatiseerimine |
+| Katre Seema | Riskid, andmekontrollide ja -teisenduste kirjeldamine, arhitektuuripildi ja dokumentatsiooni viimislemine, Superset andmete juhtimislaud|
+| Margus Soots | REPO omanik, andmeallikate liidestamine, pytoni ja SQL koodid, tarkvarade ühendus, kooditäiendused ja automatiseerimine, video monteerimine |
