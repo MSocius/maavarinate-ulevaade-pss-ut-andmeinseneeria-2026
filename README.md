@@ -52,9 +52,9 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 | Orkestreerimine | cron |
 
 ## Peamised õppetunnid
--- algtaseme õppijale väga palju tarkvarasid ja süsteeme, millel igaühel omad "kiiksud"
--- iga eraldi osa tervikust on tehtav ja arusaadav, palju nuputamist ja katsetamist tervikliku andmevoo toimima saamiseks
--- vilumust ei jõudnud tekkida, kuid materjalid on olemas, et edasi uurida
+> algtaseme õppijale väga palju tarkvarasid ja süsteeme, millel igaühel omad "kiiksud"
+> iga eraldi osa tervikust on tehtav ja arusaadav, palju nuputamist ja katsetamist tervikliku andmevoo toimima saamiseks
+> vilumust ei jõudnud tekkida, kuid materjalid on olemas, et edasi uurida
 
 ## Käivitamine
 
