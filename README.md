@@ -2,14 +2,14 @@
 
 ## Äriküsimus
 
-Meie eesmärk on koondada maavärina andmed ühtsesse ülevaatesse, mis toetab teadlasi, kriisijuhtimist ja avalikkust ajakohase ohutaseme hindamisel ning varajase hoiatamise võimaluste parandamisel.
+Meie eesmärk on koondada **viimase nädala maavärinate** andmed ühtsesse ülevaatesse, mis toetab teadlasi, kriisijuhtimist ja avalikkust ajakohase ohutaseme hindamisel ning varajase hoiatamise võimaluste parandamisel.
 
-Millistes piirkondades on viimase nädala jooksul toimunud kõige rohkem reageerimist vajava ohutasemega maavärinaid ja kui tugevad/ulatuslikud need olid?
+Millistes **piirkondades** on viimase nädala jooksul toimunud kõige rohkem **reageerimist** **vajava** **ohutasemega** maavärinaid ja kui tugevad/ulatuslikud need olid?
 
 **Mõõdikud:**
 
 1. Reageerimist vajava ohutasemega maavärinate arv viimasel nädalal
-2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi ja piirkonna järgi
+2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi järgi
 3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
 4. Reageerimist vajava ohutasemega maavärina asukoha ilmainfo.
 
@@ -37,7 +37,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 | Allikas | Tüüp | Ajas muutuv? | Roll |
 |---------|------|--------------|------|
 | USGS Earthquake | API | Jah, osaliselt iga minut | Põhiandmevoog |
-| Open Meteo Forecast | API | Jah, ... | Lisaandmevoog |
+| Open Meteo Forecast | API | Jah, iga tund | Lisaandmevoog |
 
 
 ## Stack
