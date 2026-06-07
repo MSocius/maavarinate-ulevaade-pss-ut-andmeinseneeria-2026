@@ -69,7 +69,7 @@ Loob järgmise keskkonna
 > Container: maavarin-db; maavarin-superset-init; maavarin-scheduler; maavarin-superset-import; maavarin-superset  
 
 # 4. Käivita kõik tegevused ühe koodiga  
-py aa_koik_jarjest.py
+python aa_koik_jarjest.py
 ```
 Näidikulaud: http://localhost:8088
 
