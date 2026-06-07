@@ -54,7 +54,7 @@ Täpsem kirjeldus: [`docs/arhitektuur.md`](docs/arhitektuur.md)
 ## Peamised õppetunnid
 1. algtaseme õppijale väga palju tarkvarasid ja süsteeme, millel igaühel omad "kiiksud"
 2. palju nuputamist ja katsetamist tervikliku andmevoo toimima saamiseks
-3. vilumust ei jõudnud tekkida, kuid materjalid on olemas, et seda tekitada
+3. vilumust ei jõudnud tekkida, kuid materjalid on olemas
 4. kui päriselt tahta projektitööna loodut avalikult välja panna või kasutusse võtta, siis tuleks projekti veel täiustada 
 
 ## Käivitamine
