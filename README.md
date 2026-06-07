@@ -11,7 +11,7 @@ Millistes **piirkondades** on viimase nädala jooksul toimunud kõige rohkem **r
 
 1. Reageerimist vajava ohutasemega maavärinate arv viimasel nädalal
 2. Maavärinate arv viimasel nädala nende tugevuse (magnituudi) grupi järgi
-3*. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes.
+3. Maavärinate ja reageerimist vajavate ohutasemetega maavärinate arv keskmiselt ühes nädalas kuude ja aastate lõikes. (NB! juhtimislaual ei ole!)
 4. Reageerimist vajava ohutasemega maavärina asukoha ilmainfo.
 
 Täpsem info mõõdikute kohta koos arvutuskäiguga: [`docs/arhitektuur.md`](docs/arhitektuur.md)
