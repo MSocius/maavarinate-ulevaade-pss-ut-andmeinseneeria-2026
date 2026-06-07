@@ -47,7 +47,7 @@ df = pd.read_sql("SELECT * FROM earthquakes_alert_week ORDER BY day", conn)
 # --- 3) Kuvame terminalis ---
    # print("Vaate 'earthquakes_alert_week' sisu:")
    # print(df)
-   ¤ print("\nRidu kokku:", len(df))
+   # print("\nRidu kokku:", len(df))
 
 # --- 4) Graafik ---
 plt.figure(figsize=(10,5))
