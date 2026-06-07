@@ -1,4 +1,5 @@
 # GRUPP VÄRIN - VIIMASE_NÄDALA_MAAVÄRINATE_ÜLEVAADE
+Grupiliikmed: Margus Soots ja Katre Seema
 
 ## Äriküsimus
 
